@@ -142,3 +142,7 @@ function close_cart()
     if(document.getElementById("cartshow").style.display != "none")
         document.getElementById("cartshow").style.display = "none";
 }
+
+// function redirect_page() {
+//     window.location.href = 'menu_mon_an.html';
+// }

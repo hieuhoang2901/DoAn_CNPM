@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/admin.css">
+    <link rel="stylesheet" href="./css/css_menu_mon_an.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <title>Document</title>
 </head>
@@ -15,37 +16,42 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2a2928;">
         <div class="container">
-
+            <!-- <a href="/">
+                <img src="https://scontent.fdad3-3.fna.fbcdn.net/v/t1.15752-9/123829907_870660897075034_4552007849856487333_n.png?_nc_cat=100&ccb=1-5&_nc_sid=ae9488&_nc_ohc=IGEGXX1OwWcAX_NNYyp&_nc_ht=scontent.fdad3-3.fna&oh=6b65e630c456972c7c4c874f0844ffc9&oe=61A72A52" alt="" class="logo">
+            </a>
+            <a class="navbar-brand" href="/">PizzaKing.vn</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button> -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto fontSize">
-                    <li class="nav-item active mr-4 selectedMenu">
-                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    <li class="nav-item active mr-4">
+                        <a class="nav-link" href="menu_mon_an.html">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active mr-4">
-                        <a class="nav-link" href="/">Pizza <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="menu_mon_an.html">Pizza <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active mr-4">
-                        <a class="nav-link" href="/">Khai vị<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="menu_mon_an.html">Khai vị<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active mr-4">
-                        <a class="nav-link" href="/">Mì ý<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="menu_mon_an.html">Mì ý<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active mr-4">
-                        <a class="nav-link" href="/">Salad<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="menu_mon_an.html">Salad<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active mr-4">
-                        <a class="nav-link" href="/">Tráng miệng<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="menu_mon_an.html">Tráng miệng<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active mr-4">
-                        <a class="nav-link" href="/">Thức uống<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="menu_mon_an.html">Thức uống<span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item active mr-4" style="background-color: rgb(148, 204, 253);">
-                        <a class="nav-link" href="/">Admin<span class="sr-only">(current)</span></a>
+                    <li class="nav-item active mr-4">
+                        <a class="nav-link cart-icon" onmouseover="show_cart()" onmouseleave="close_cart()">Giỏ hàng(0)<span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
             </div>
-
-
         </div>
     </nav>
     <div class="container">
@@ -347,6 +353,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <script src="./js/script_menu_mon_an.js"></script>
 </body>
 
 </html>
