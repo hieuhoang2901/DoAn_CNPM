@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gio hang</title>
+    <link rel="shortcut icon" href="pizzaKingLogo-removebg.png" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/vendor/open-iconic-master/open-iconic-master/font/css/open-iconic-bootstrap.css">
+    <link rel="stylesheet" href="main.css">
+    <script src="https://kit.fontawesome.com/6354df0438.js" crossorigin="anonymous"></script>
+    <style>
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        input{
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            align-items: center;
+        }
+
+        img {
+            width: 100%;
+        }
+        .gio-hang{
+            
+            padding: 10px;
+            margin: auto ;
+           
+        }
+        .item-gio-hang{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            color: chocolate;
+        }
+        .item-gio-hang .hinh-anh img{
+            width: 120px;
+            height: 120px;
+        }
+        .item-gio-hang .hinh-anh, .hanh-dong, .kich-thuoc, .thanh-tien, .so-luong {
+            flex:2;
+            margin-left: 20px;
+        }
+        .item-gio-hang .gia {
+            flex:2;
+        }
+        .item-gio-hang .ten{
+            flex:5;
+            font-size: 30px;
+        }
+        .item-gio-hang .hanh-dong i:hover {
+             color: chocolate;
+        }
+        .item-gio-hang .hanh-dong {
+            color: black;
+        }
+        
+        .item-gio-hang .ten .mo-ta, .kich-thuoc .tien-them {
+            font-size: 15px;
+            color: grey;
+            max-width: 250px;
+        }
+
+        .item-gio-hang input {
+            width: 100%;
+        }
+
+        .gio-hang .tieu-de{
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-weight: 600;
+            color : black;
+        }
+
+        .gio-hang .tong-tien{
+            font-weight: 600;
+        }
+        .thanh-toan{
+            display: flex;
+            flex-direction: row;
+            align-items: right;
+            background-color: chocolate;
+            color: white;
+            margin: auto;
+            padding: 28px 80px;
+            border-radius: 12px;
+            transition-duration: 0.4s;
+            font-weight: 600;
+        }
+        .thanh-toan:hover {
+            background-color: white;
+            color: chocolate;
+        }
+
+        hr {
+            display: block;
+            height: 1px;
+            border: 0;
+            border-top: 1px solid #ccc;
+            margin: 1em 0;
+            padding: 0;
+            max-width: 1000px;
+            margin: 1em auto;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="heading">
+        <div class="heading1">
+            <img src="pizzaKingLogo-removebg.png" alt="PizzaKingLogo" class="logo-img">
+            <h1 class="logo-img2">PizzaKing</h1>
+            <p class="logo-img3">.vn</p>
+        </div>
+        <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle account-edit" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="oi oi-person"></span>
+            Admin
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">My profile</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Food List</a>
+            <a class="dropdown-item" href="#">Ordered Management</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Log Out</a>
+          </div>
+        </div>
+    </div>
+
+    <div class="menu-all">
+      <div class="menu">
+        <div class="heading-list-1">
+          <a class="heading-item-list" href="">Home</a>
+          <a class="heading-item-list" href="">Pizza</a>
+          <a class="heading-item-list" href="">Khai vị</a>
+          <a class="heading-item-list" href="">Mì Ý</a>
+          <a class="heading-item-list" href="">Salad</a>
+          <a class="heading-item-list" href="">Tráng miệng</a>
+          <a class="heading-item-list" href="">Thức uống</a>
+        </div>
+        <div class="heading-list-2">
+            <a href="" class="gio-hang">
+              Giỏ hàng
+              <span class="oi oi-cart"></span>
+            </a>
+        </div>
+      </div>
+    </div>
+    <div class="lich-su-don-hang mt-4">GIỎ HÀNG</div>
+    <div class="gio-hang">
+        <div class="item-gio-hang tieu-de">
+            <div class="hinh-anh">
+            </div>
+            <div class="ten">
+                <span class="ten">Tên </span>
+            </div>
+            <div class="kich-thuoc">
+                <span class="kich-thuoc">Kích thước</span>
+            </div>
+            <div class="gia">
+                <span class="gia">Giá gốc</span>
+            </div>
+            <div class="so-luong">Số lượng</div>
+            <div class="thanh-tien">Thành tiền</div>
+            <div class="hanh-dong">
+            </div>
+            
+        </div>
+    </div>
+    
+    <hr/>
+    
+    <div class="gio-hang mt-4">
+        <div class="item-gio-hang">
+            <div class="hinh-anh">
+                <img src="pestoxanh.png" >
+            </div>
+            <div class="ten">
+                <p class="ten">Pizza hải sản Pesto xanh</p>
+                <p class="mo-ta">Tôm, cua, mực và bông cải xanh tươi ngon trên nền sốt Pesto Xanh
+                </p>
+            </div>
+            <div class="kich-thuoc">
+                <p class="kich-thuoc">Lớn</p>
+                <p class="tien-them">+50.000đ</p>
+            </div>
+            <div class="gia">
+                <span class="gia">219.000đ</span>
+            </div>
+            <input type="number" class="so-luong" value="1" >
+            <div class="thanh-tien">269.000đ</div>
+            <div class="hanh-dong">
+                <i class="far fa-trash-alt"></i>
+            </div>
+            
+        </div>
+
+    </div>
+    <hr/>
+
+    <div class="gio-hang mt-4">
+        <div class="item-gio-hang">
+            <div class="hinh-anh">
+                <img src="cocktail.png" >
+            </div>
+            <div class="ten">
+                <p class="ten">Pizza hải sản Cocktail</p>
+                <p class="mo-ta">Tôm, cua, giăm bông,... với sốt Thousand Island
+
+                </p>
+            </div>
+            <div class="kich-thuoc">
+                <p class="kich-thuoc">Vừa</p>
+                <p class="tien-them">+30.000đ</p>
+            </div>
+            <div class="gia">
+                <span class="gia">159.000đ</span>
+            </div>
+            <input type="number" class="so-luong" value="1" >
+            <div class="thanh-tien">189.000đ</div>
+            <div class="hanh-dong">
+                <i class="far fa-trash-alt"></i>
+            </div>
+            
+        </div>
+
+    </div>
+    <hr/>
+
+    <div class="gio-hang mt-4">
+        <div class="item-gio-hang">
+            <div class="hinh-anh">
+                <img src="raucu.png" >
+            </div>
+            <div class="ten">
+                <p class="ten">Pizza rau củ</p>
+                <p class="mo-ta">Hành, ớt chuông, nấm, dứa, cà chua
+                </p>
+            </div>
+            <div class="kich-thuoc">
+                <p class="kich-thuoc">Nhỏ</p>
+                <p class="tien-them"></p>
+            </div>
+            <div class="gia">
+                <span class="gia">99.000đ</span>
+            </div>
+            <input type="number" class="so-luong" value="1" >
+            <div class="thanh-tien">99.000đ</div>
+            <div class="hanh-dong">
+                <i class="far fa-trash-alt"></i>
+            </div>
+            
+        </div>
+
+    </div>
+    <hr/>
+
+    <div class="gio-hang">
+        <div class="item-gio-hang tong-tien ">
+            <div class="hinh-anh">
+            </div>
+            <div class="ten">
+                <span class="ten">TỔNG TIỀN: </span>
+            </div>
+            <div class="kich-thuoc">
+            </div>
+            <div class="gia">
+            </div>
+            <div class="so-luong"></div>
+            <div class="thanh-tien">557.000đ</div>
+            <div class="hanh-dong">
+            </div>
+            
+        </div>
+    </div>
+    <br><br><br>
+    <button type="submit" class="thanh-toan">Thanh toán</button>
