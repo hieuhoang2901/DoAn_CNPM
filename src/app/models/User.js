@@ -9,7 +9,7 @@ const User = new Schema({
     password: { type: String, required: true },
     permission: { type: String, default: 'Customer' },
     name: { type: String, maxlength: 100, required: true },
-    photo: { type: String, required: true },
+    phone: { type: String, required: true },
     address: { type: String }
 });
 
