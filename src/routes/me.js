@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const UserController = require('./../app/controllers/UserController')
+const MeController = require('./../app/controllers/MeController')
 
-router.get('/', UserController.getAllUser);
+router.get('/stored/food', MeController.storedFoods);
 
 module.exports = router;
