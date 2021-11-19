@@ -125,6 +125,7 @@ h2 {
     color : white;
     font-size: 1rem;
     text-decoration: none;
+    margin-right: 3rem;
 }
 .gio-hang:hover {
     color: chocolate;
@@ -210,3 +211,10 @@ h2 {
     border: 2px dashed #000;
     border-radius: 5%;
 }
+
+.tieu-de{
+    margin: 40px auto 20px auto;
+    color: #d80000;
+    font-size: 30px;
+}
+

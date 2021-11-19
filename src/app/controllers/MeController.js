@@ -1,8 +1,9 @@
-const { multipleMongooseToObject } = require('../../util/mongoose')
-const Dish = require('../models/Dish');
+const { multipleMongooseToObject, mongooseToObject } = require('../../util/mongoose');
+const Course = require('../models/Course');
+const Dish = require('../models/Dish')
 
 class MeController {
-    // [GET]    /stored/courses
+  // [GET]    /stored/courses
   storedFoods(req, res, next) {
 
     if (req.query.hasOwnProperty('_sort')) {
@@ -19,6 +20,17 @@ class MeController {
       )
       .catch(next);
   }
+
+  // [GET]    /trash/courses
+  trashedFoods(req, res, next) {
+    Dish.findDeleted({}) 
+      .then((dishes) => 
+        res.render('me/trashed-food', {
+          dishes: multipleMongooseToObject(dishes),
+        }), 
+      )
+      .catch(next);
+  }
 }
 
-module.exports = new MeController;
+module.exports = new MeController();

@@ -9,9 +9,8 @@ const Dish = new Schema({
   name: {type: String, required: true},
   description: {type: String, maxLength: 600},
   image: {type: String, maxLength: 255},
+  price: {type: Number},
   slug: { type: String, slug: 'name', unique: true},
-  videoId: {type: String, required: true},
-  level: {type: String, maxLength: 255},
 },{
   timestamps: true,
 });

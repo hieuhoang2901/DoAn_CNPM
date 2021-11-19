@@ -4,5 +4,7 @@ const router = express.Router();
 const MeController = require('./../app/controllers/MeController')
 
 router.get('/stored/food', MeController.storedFoods);
+router.get('/trashed/food', MeController.trashedFoods);
+
 
 module.exports = router;

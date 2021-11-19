@@ -1,25 +1,20 @@
-<div class="mt-4">
-  <h3>Thêm món ăn cho nhà hàng</h3>
+<div class="mt-4 container">
+  <h3 class="tieu-de">Thêm món ăn cho nhà hàng</h3>
   <form method="POST" action="/courses/store">
     <div class="form-group">
       <label for="name">Name</label>
-      <input type="text" class="form-control" id="name" name="name">
+      <input type="text" class="form-control" id="name" name="name" placeholder="Họ và tên">
     </div>
 
     <div class="form-group">
       <label for="description">Description</label>
-      <input type="text" class="form-control" id="description" name="description">
+      <textarea type="text" class="form-control" id="description" name="description" placeholder="Mô tả ngắn về món ăn"></textarea>
     </div>
 
     <div class="form-group">
-      <label for="videoId">ID Video</label>
-      <input type="text" class="form-control" id="videoId" name="videoId">
+      <label for="price">Price(VND)</label>
+      <input type="text" class="form-control" id="price" name="price">
     </div>
-
-    <div class="form-group">
-      <label for="level">Level video</label>
-      <input type="text" class="form-control" id="level" name="level">
-    </div>
-    <button type="submit" class="btn btn-primary">Thêm khóa học</button>
+    <button type="submit" class="btn btn-dark">Thêm món ăn</button>
   </form>
 </div>
