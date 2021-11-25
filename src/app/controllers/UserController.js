@@ -240,7 +240,7 @@ class UserController {
                             });
                             newuser
                                 .save()
-                                .then(() => res.redirect('back'))
+                                .then(() => res.redirect('/loginpage'))
                                 .catch((error) => {
                                     res.json({ message: error });
                                 });

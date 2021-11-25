@@ -1,10 +1,13 @@
 const express = require('express');
-const router = express.Router();
+const route = express.Router();
 
-const siteController = require('./../app/controllers/SiteController')
+const site_controller = require('../app/controllers/SiteController');
 
-router.get('/', siteController.home);
-router.post('/', siteController.redirect_to_search);
-router.get('/search/:data', siteController.search);
+route.get('/search', site_controller.search);
+route.get('/loginpage', site_controller.loginpage);
+route.get('/register', site_controller.register);
+route.get('/forgotpassword', site_controller.resetpassword);
+route.post('/resetpassword', site_controller.resetpasswordpost);
+route.get('/', site_controller.home);
 
-module.exports = router;
+module.exports = route;

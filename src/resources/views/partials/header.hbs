@@ -1,24 +1,96 @@
 <nav class="heading navbar navbar-expand-lg navbar-dark">
   <div class="container">
     <div class="heading1">
-      <img src="https://i.pinimg.com/564x/e6/c4/7c/e6c47ce6173c5044b2bcf9a497c1dc67.jpg" alt="PizzaKingLogo" class="logo-img">
+      <a href="/">
+        <img src="https://i.pinimg.com/564x/e6/c4/7c/e6c47ce6173c5044b2bcf9a497c1dc67.jpg" alt="PizzaKingLogo" class="logo-img">
+      </a>
       <h1 class="logo-img2">PizzaKing.vn</h1>
     </div>
-    <div class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle account-edit" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span class="oi oi-person"></span>
-        Admin
-      </a>
-      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="#">My profile</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="/foods/create">Add food</a>
-        <a class="dropdown-item" href="/me/stored/foods">Food List</a>
-        <a class="dropdown-item" href="#">Ordered Management</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">Log Out</a>
-      </div>
-    </div>
+    
+    {{#if (isMatch user.permission "Admin")}}
+      <li class="header__navbar-item">
+        <a href="" class="header__navbar-item-link">
+              <img src="/image/star_icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+              Admin
+        </a>
+        <ul class="header__subnav-list">
+          <li class="header__subnav-item">
+            <a href="/admin" class="header__subnav-link">Thông tin người dùng</a>
+          </li>
+          <li class="header__subnav-item header__subnav-item">
+            <a href="/admin/createManager" class="header__subnav-link">Thêm quản lý</a>
+          </li>
+          
+          <li class="header__subnav-item header__subnav-item">
+            <a href="/user/logout" class="header__subnav-link">Đăng xuất</a>
+          </li>
+        </ul>
+      </li>
+    {{/if}}
+
+    {{#if (isMatch user.permission "Manager")}}
+      <li class="header__navbar-item">
+        <a href="" class="header__navbar-item-link">
+              <img src="/image/star_icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+              {{user.name}}
+        </a>
+        <ul class="header__subnav-list">
+          <li class="header__subnav-item">
+            <a href="/manager/viewrevenue" class="header__subnav-link">Thông tin doanh thu</a>
+          </li>
+          <li class="header__subnav-item header__subnav-item">
+            <a href="/manager/create" class="header__subnav-link">Thêm món ăn</a>
+          </li>
+          <li class="header__subnav-item header__subnav-item">
+            <a href="/manager/vieworders" class="header__subnav-link">Xem đơn đặt món ăn</a>
+          </li>
+          
+          <li class="header__subnav-item header__subnav-item">
+            <a href="/user/logout" class="header__subnav-link">Đăng xuất</a>
+          </li>
+        </ul>
+      </li>
+    {{/if}}
+
+    {{#if (isMatch user.permission "Customer")}}
+      <li class="header__navbar-item">
+        <a href="/user" class="header__navbar-item-link">
+              <img src="{{imageload user.image user.imageType}}" id="profileImage" width="30" height="30" class="d-inline-block align-top" alt="">
+              {{user.name}}
+        </a>
+        <ul class="header__subnav-list">
+          <li class="header__subnav-item">
+            <a href="/user" class="header__subnav-link">Thông tin người dùng</a>
+          </li>
+          <li class="header__subnav-item header__subnav-item">
+            <a href="/user/ordering" class="header__subnav-link">Giỏ Hàng</a>
+          </li>
+          <li class="header__subnav-item header__subnav-item">
+            <a href="/user/ordered" class="header__subnav-link">Lịch sử mua hàng</a>
+          </li>
+          <li class="header__subnav-item header__subnav-item">
+            <a href="/user/viewbooktable2" class="header__subnav-link">Bàn đã đặt</a>
+          </li>
+          <li class="header__subnav-item header__subnav-item">
+            <a href="/user/logout" class="header__subnav-link">Đăng xuất</a>
+          </li>
+        </ul>
+      </li>
+    {{/if}}
+
+    {{#unless user}}
+      <li class="header__navbar-item">
+        <a href="/loginpage" class="header__navbar-item-link">ACCOUNT</a>
+        <ul class="header__subnav-list">
+          <li class="header__subnav-item">
+            <a href="/loginpage" class="header__subnav-link">Sign in</a>
+          </li>
+          <li class="header__subnav-item header__subnav-item">
+            <a href="/register" class="header__subnav-link">Register</a>
+          </li>
+        </ul>
+      </li>
+    {{/unless}}
   </div>
 </nav>
 

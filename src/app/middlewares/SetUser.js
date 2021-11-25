@@ -1,4 +1,4 @@
-const User = require('../models/Userid');
+const User = require('../models/User');
 module.exports = function GetUser(req, res, next) {
     if (req.session.email) {
         User.findOne({ email: req.session.email.username })
