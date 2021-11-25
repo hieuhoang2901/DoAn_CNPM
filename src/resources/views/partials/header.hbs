@@ -25,7 +25,7 @@
 <nav class="menu-all navbar navbar-expand-lg navbar-dark">
   <div class="container menu">
     <div class="heading-list-1">
-      <a class="heading-item-list" href="">Home</a>
+      <a class="heading-item-list" onclick="if(window.location.pathname == '/') window.scrollTo({ top: 0, behavior: 'smooth' }); else window.location.href='/'">Home</a>
       <a class="heading-item-list" href="">Pizza</a>
       <a class="heading-item-list" href="">Khai vị</a>
       <a class="heading-item-list" href="">Mì Ý</a>
@@ -34,10 +34,29 @@
       <a class="heading-item-list" href="">Thức uống</a>
     </div>
     <div class="">
-      <a href="" class="gio-hang">
-        Giỏ hàng
-        <span class="oi oi-cart"></span>
+      <a href="" class="gio-hang cart-icon" onmouseover="show_cart()" onmouseleave="close_cart()">
+        Giỏ hàng(0)
       </a>
     </div>
   </div>
 </nav>
+
+<!-- Cart test -->
+  <section class="container content-section">
+      <div id="cartshow" onmouseover="show_cart()" onmouseleave="close_cart()" style="display: none;">
+          <h2 class="section-header">Giỏ hàng</h2>
+          <div class="cart-row">
+              <span class="cart-item cart-header cart-column">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sản phẩm</span>
+              <span class="cart-price cart-header cart-column">Giá</span>
+              <span class="cart-quantity cart-header cart-column">Số lượng</span>
+          </div>
+          <div class="cart-items">
+          </div>
+          <div class="cart-total">
+              <strong class="cart-total-title">Tổng cộng:</strong>
+              <span class="cart-total-price">0đ</span>
+          </div>
+          <button class="btn btn-primary btn-purchase" type="button">Thanh toán ngay</button>
+      </div>
+  </section>
+    <!-- End cart test -->
