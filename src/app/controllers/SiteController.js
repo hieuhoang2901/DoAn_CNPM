@@ -1,26 +1,37 @@
-const Dish = require('../models/Dish');
+const Dish = require('./../models/Dish');
+
 const { multipleMongooseToObject } = require('../../util/mongoose')
 
 class SiteController {
-
   home(req,res,next) {
-
     Dish.find({})
       .then(dishes => {
         res.render('home', {
           dishes: multipleMongooseToObject(dishes)
         });
       })
-      .catch(next);   
-
+      .catch(next);
   }
-
-  search(req,res) {
-    res.render('search');
+  redirect_to_search(req, res, next) {
+    var data = (req.body.searchBar).replace(' ', '-');
+    res.redirect('/search/' + data);
   }
-
-  contact(req,res) {
-    res.send('Contact with me!!!');
+  search(req,res,next) {
+    var data = (req.params.data).replace('-', ' ');
+    Dish.find({'name' : new RegExp(data, 'i')})
+    .then(dishes => {
+      res.render('searchResult', {
+        dishes: multipleMongooseToObject(dishes)
+      });
+    })
+    .catch(next);
+    // Dish.find({})
+    //   .then(dishes => {
+    //     res.render('searchResult', {
+    //       dishes: multipleMongooseToObject(dishes)
+    //     });
+    //   })
+    //   .catch(next);
   }
 }
 

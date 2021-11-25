@@ -1,20 +1,165 @@
-<div class="mt-4">
-  <div class="row">
-    {{#each dishes}}
-    <div class="col-sm-6 col-lg-3">
-      <div class="card card-course-item">
-        <a href="/foods/{{this.slug}}">
-          <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
-        </a>
-        <div class="card-body">
-          <a href="/foods/{{this.slug}}">
-            <h5 class="card-title">{{this.name}}</h5>
-          </a>
-          <p class="card-text">{{this.description}}</p>
-          <a href="#" class="btn btn-primary">Xem</a>
-        </div>
-      </div>
+<section id = "Slider">
+    <div class="aspect-ratio-169" style="left: 0%;">
+        <img src="https://www.pizzaexpress.vn/wp-content/uploads/2021/09/Banner-Pizza-Web-18-9-2021.png" alt="">
+        <img src="https://www.pizzaexpress.vn/wp-admin/admin-ajax.php?action=kc_get_thumbn&type=filter_url&id=%2Fwp-content%2Fuploads%2F2020%2F12%2FGiam20-muabanhvami.jpg" alt="">
+        <img src="https://www.pizzaexpress.vn/wp-content/uploads/2020/12/test.jpg" alt="">
+        <img src="https://www.pizzaexpress.vn/wp-content/uploads/2020/12/Artboard-4-1.jpg" alt="">
     </div>
-    {{/each}}
-  </div>
-</div>
+    <div class="dot-container">
+        <div class="dot Active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+</section>
+
+{{!-- Search bar --}}
+<form id="search-bar" method="post" action="/">
+    <input type="search" id="search-input" name="searchBar" placeholder="Search..." required>
+    <button><i class="fa fa-search"></i></button>
+</form>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    #search-bar {
+        float: right;
+        margin-right: 95px;
+    }
+    #search-input {
+        border: none;
+        border-radius: 5px;
+        width: 350px;
+        height: 35px;
+        box-shadow: 0px 0px 7px rgb(255, 72, 0);
+        padding-left: 10px;
+    }
+    #search-bar button {
+        border: none;
+        background-color: white;
+        height: 50px;
+        width: 30px;
+        cursor: pointer;
+        color: rgb(255, 72, 0);
+        font-size: 23px;
+    }
+
+</style>
+{{!-- Menu mon --}}
+<section class="category-wrapper">
+        <h3><u>Thực đơn</u></h3>
+        <h3 class="list-title" id="pizza-list-view">Pizza</h3>
+        <div class="category">
+        {{#each dishes}}
+        {{#if_eq this.type 'Pizza'}}
+            <div class="category-item">
+                <input type="hidden" class="category-item-id" value="{{this._id}}" name="id">
+                <img class="category-item-image" src="/images/{{this.image}}" alt="">
+                <h1 class="category-item-title">{{this.name}}</h1>
+                <p class="category-item-detail">{{this.description}}</p>
+                <p>Giá chỉ từ:</p>
+                <p><b class="category-item-price">{{this.price}}đ</b>&nbsp;&nbsp;&nbsp;&nbsp;<button class="category-item-button" type="button">Mua ngay</button></p>
+            </div>
+        {{/if_eq}}
+        {{/each}}
+        </div>
+        
+        <h3 class="list-title" id="khaivi-list-view">Khai vị</h3>
+        <div class="category">
+        {{#each dishes}}
+        {{#if_eq this.type  'Khai vị'}}
+            <div class="category-item">
+                <input type="hidden" class="category-item-id" value="{{this._id}}" name="id">
+                <img class="category-item-image" src="/images/{{this.image}}" alt="">
+                <h1 class="category-item-title">{{this.name}}</h1>
+                <p class="category-item-detail">{{this.description}}</p>
+                <p>Giá chỉ từ:</p>
+                <p><b class="category-item-price">{{this.price}}đ</b>&nbsp;&nbsp;&nbsp;&nbsp;<button class="category-item-button" type="button">Mua ngay</button></p>
+            </div>
+        {{/if_eq}}
+        {{/each}}
+        </div>
+
+        <h3 class="list-title" id="myy-list-view">Mỳ ý</h3>
+        <div class="category">
+        {{#each dishes}}
+        {{#if_eq this.type  'Mỳ ý'}}
+            <div class="category-item">
+                <input type="hidden" class="category-item-id" value="{{this._id}}" name="id">
+                <img class="category-item-image" src="/images/{{this.image}}" alt="">
+                <h1 class="category-item-title">{{this.name}}</h1>
+                <p class="category-item-detail">{{this.description}}</p>
+                <p>Giá chỉ từ:</p>
+                <p><b class="category-item-price">{{this.price}}đ</b>&nbsp;&nbsp;&nbsp;&nbsp;<button class="category-item-button" type="button">Mua ngay</button></p>
+            </div>
+        {{/if_eq}}
+        {{/each}}
+        </div>
+
+        <h3 class="list-title" id="salad-list-view">Salad</h3>
+        <div class="category">
+        {{#each dishes}}
+        {{#if_eq this.type  'Salad'}}
+            <div class="category-item">
+                <input type="hidden" class="category-item-id" value="{{this._id}}" name="id">
+                <img class="category-item-image" src="/images/{{this.image}}" alt="">
+                <h1 class="category-item-title">{{this.name}}</h1>
+                <p class="category-item-detail">{{this.description}}</p>
+                <p>Giá chỉ từ:</p>
+                <p><b class="category-item-price">{{this.price}}đ</b>&nbsp;&nbsp;&nbsp;&nbsp;<button class="category-item-button" type="button">Mua ngay</button></p>
+            </div>
+        {{/if_eq}}
+        {{/each}}
+        </div>
+
+        <h3 class="list-title" id="trangmieng-list-view">Tráng miệng</h3>
+        <div class="category">
+        {{#each dishes}}
+        {{#if_eq this.type  'Tráng miệng'}}
+            <div class="category-item">
+                <input type="hidden" class="category-item-id" value="{{this._id}}" name="id">
+                <img class="category-item-image" src="/images/{{this.image}}" alt="">
+                <h1 class="category-item-title">{{this.name}}</h1>
+                <p class="category-item-detail">{{this.description}}</p>
+                <p>Giá chỉ từ:</p>
+                <p><b class="category-item-price">{{this.price}}đ</b>&nbsp;&nbsp;&nbsp;&nbsp;<button class="category-item-button" type="button">Mua ngay</button></p>
+            </div>
+        {{/if_eq}}
+        {{/each}}
+        </div>
+
+        <h3 class="list-title" id="thucuong-list-view">Thức uống</h3>
+        <div class="category">
+        {{#each dishes}}
+        {{#if_eq this.type  'Thức uống'}}
+            <div class="category-item">
+                <input type="hidden" class="category-item-id" value="{{this._id}}" name="id">
+                <img class="category-item-image" src="/images/{{this.image}}" alt="">
+                <h1 class="category-item-title">{{this.name}}</h1>
+                <p class="category-item-detail">{{this.description}}</p>
+                <p>Giá chỉ từ:</p>
+                <p><b class="category-item-price">{{this.price}}đ</b>&nbsp;&nbsp;&nbsp;&nbsp;<button class="category-item-button" type="button">Mua ngay</button></p>
+            </div>
+        {{/if_eq}}
+        {{/each}}
+        </div>
+
+        {{!-- <!-- Cart test -->
+        <section class="container content-section">
+            <div id="cartshow" onmouseover="show_cart()" onmouseleave="close_cart()" style="display: none;">
+                <h2 class="section-header">Giỏ hàng</h2>
+                <div class="cart-row">
+                    <span class="cart-item cart-header cart-column">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sản phẩm</span>
+                    <span class="cart-price cart-header cart-column">Giá</span>
+                    <span class="cart-quantity cart-header cart-column">Số lượng</span>
+                </div>
+                <div class="cart-items">
+                </div>
+                <div class="cart-total">
+                    <strong class="cart-total-title">Tổng cộng:</strong>
+                    <span class="cart-total-price">0đ</span>
+                </div>
+                <button class="btn btn-primary btn-purchase" type="button">Thanh toán ngay</button>
+            </div>
+        </section>
+        <!-- End cart test --> --}}
+</section>
