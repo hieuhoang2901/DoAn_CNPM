@@ -183,7 +183,7 @@ function updateCartTotal() {
 
         var sp = new Array(title, price, imageSrc, quantity, itemID)
         giohang.push(sp)
-        // console.log(giohang)
+        console.log(giohang)
         localStorage.setItem('giohang', JSON.stringify(giohang));
 
         total = total + (price * quantity)

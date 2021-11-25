@@ -145,71 +145,35 @@ class UserController {
             .catch(next);
     }
 
-
-    // [GET] /user/payment
-    payment(req, res, next) {
-        // res.render('user/onlPayment',{user: req.user})
-        var cart = new Cart(req.session.cart);
-        if(!req.session.cart ) return res.redirect('back');
-        res.render('User/onlPayment',{
-            noheader: true,
+    // [POST] /user/payment 
+    payment(req,res,next) {
+        var arr = JSON.parse(req.body.cart);
+        // res.json(arr);
+        var cart = {
+            items: [],
+            totalPrice: 0,
+        };
+        for(let i = 0; i < arr.length; i++)
+        {
+          cart.items.push({
+            name: arr[i][0],
+            price: arr[i][1],
+            image: arr[i][2],
+            qty: parseInt(arr[i][3]),
+          });
+          cart.totalPrice += cart.items[i].price * cart.items[i].qty;
+        }
+        // res.json(cart);
+         req.session.cart = cart;
+        // res.json(req.session.cart);
+        res.render('user/onlPayment',{
+            cartdishes: cart.items,
+            totalPrice: cart.totalPrice,
             user: req.user,
-            cartdishes: cart.generateArray(),
-            subtotalPrice: cart.totalPrice,
-            totalPrice: cart.totalPrice + 5,
-            totalQty: cart.totalQty,
-        })
-    }
 
-    // [POST] /user/add-to-cart/:id
-    addToCart(req, res, next){
-        var cart = new Cart(req.session.cart);
-        
-        Dish.findById(req.body.id)
-            .then((dish) => {
-                for(let i=0; i<req.body.qty; i++){
-                cart.add(MongoosetoObject(dish), dish._id);
-                }
-                req.session.cart = cart;
-                //console.log(req.session.cart);
-                res.redirect('back');
-                // res.json(req.session.cart);
-            })
-            .catch(next);
-    }
+        });
 
-    // [POST] /user/remove-from-cart
-    removeFromCart(req, res, next) {
-        var cart = new Cart(req.session.cart);
-        
-        Dish.findById(req.body.id)
-            .then( ()=> {
-                cart.remove(req.body.id);
-                req.session.cart = cart;
-                console.log(req.session.cart);
-                res.redirect('back');
-                // res.json(req.session.cart);
-            })
-            .catch(next);
 
-       
-    }
-
-    // [POST] /user/updateImage
-    updateImage(req, res, next) {
-        if(req.body.image) {
-        //     // res.json(req.body);
-            modifyRequestImage(req);
-            // res.json(req.body.imageType);
-            User.updateOne({_id: req.params.id },{$set:{image: req.body.image, imageType: req.body.imageType, name: req.body.name, address: req.body.address}})
-                .then(() => res.redirect('back'))
-                .catch(next);
-        }
-        else if (req.body.name){
-            User.updateOne({ _id: req.params.id },{ $set: { name: req.body.name, address: req.body.address } })
-                .then(() => res.redirect('back'))
-                .catch(next);
-        }
     }
 
     // [POST] /user/register
