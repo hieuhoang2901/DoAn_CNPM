@@ -56,7 +56,11 @@
               <strong class="cart-total-title">Tổng cộng:</strong>
               <span class="cart-total-price">0đ</span>
           </div>
-          <button class="btn btn-primary btn-purchase" type="button">Thanh toán ngay</button>
+          <button id="payment-btn" class="btn btn-primary btn-purchase" type="button">Thanh toán ngay</button>
       </div>
   </section>
     <!-- End cart test -->
+
+    <form method="POST" name="payment-form" action="/user/payment">
+        <input type="hidden" id="cart" name="cart">
+        </form> 

@@ -1,4 +1,8 @@
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 const express = require('express');
+const session = require('express-session');
 const handlebars = require('express-handlebars');
 const path = require('path');
 const methodOverride = require('method-override');
@@ -10,6 +14,20 @@ const db = require('./config/db');
 
 // Connect to DB
 db.connect();
+
+
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: true,
+    saveUninitialized: false,
+  }),
+);
+
+app.use(function(req,res,next) {
+  res.locals.session = req.session;
+  next();
+});
 
 app.use(express.static(path.join(__dirname, 'public')))
 

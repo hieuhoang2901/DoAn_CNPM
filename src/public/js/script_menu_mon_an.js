@@ -216,3 +216,15 @@ function close_cart()
 //     window.location.href = 'menu_mon_an.html';
 // }
 
+document.addEventListener('DOMContentLoaded', function () {
+    var payment_form = document.forms['payment-form'];
+    var input_cart = document.getElementById('cart');
+    var paymentBtn = document.getElementById('payment-btn');
+
+    paymentBtn.onclick = function () {
+        var arr = JSON.stringify(giohang);
+        $(input_cart).attr('value',arr);
+        console.log(arr);
+        payment_form.submit();
+    };
+});
