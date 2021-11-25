@@ -1,6 +1,6 @@
 const Course = require('../models/Course');
 const Dish = require('../models/Dish')
-const { mongooseToObject } = require('../../util/mongoose')
+const { mongooseToObject, modifyRequestImage } = require('../../util/mongoose')
 
 class DishController {
 
@@ -20,6 +20,7 @@ class DishController {
   // [POST] /courses/store
   store(req, res, next) {
     const formData = req.body;
+    // modifyRequestImage(req);
     const dish = new Dish(formData);
     dish.save()
       .then(() => res.redirect('/'))
@@ -82,12 +83,13 @@ class DishController {
         Dish.restore({ _id: {  $in: req.body.courseIds } })
           .then(() => res.redirect('back'))
           .catch(next);
-        break;
+          break;
       // -----------------------------------------------------
       case 'delete-force':
         Dish.deleteOne({ _id: {  $in: req.body.courseIds } })
           .then(() => res.redirect('back'))
           .catch(next);
+          break;
       // -----------------------------------------------------
       default:
         res.json( {message: 'Invalid action'} );

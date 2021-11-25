@@ -218,3 +218,14 @@ h2 {
     font-size: 30px;
 }
 
+.form-group {
+    width: 100%;
+}
+
+.info__label {
+    display: block;
+    font-weight: 700;
+    padding-bottom: 6px;
+    line-height: 1.8rem;
+    font-size: 1.4rem;
+}

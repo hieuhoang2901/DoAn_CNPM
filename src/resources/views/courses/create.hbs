@@ -3,7 +3,20 @@
   <form method="POST" action="/foods/store">
     <div class="form-group">
       <label for="name">Name</label>
-      <input type="text" class="form-control" id="name" name="name" placeholder="Họ và tên">
+      <input type="text" class="form-control" id="name" name="name" placeholder="Tên món ăn">
+    </div>
+
+    <div class="form-group">
+        <label class="info__label" for="type_dish-input">Loại món ăn</label>
+        <select name="type" id="type_dish-input">
+            <option value="">--Loại món ăn--</option>
+            <option value="Pizza">Pizza</option>
+            <option value="Khai vị">Khai vị</option>
+            <option value="Mỳ Ý">Mỳ Ý</option>
+            <option value="Salad">Salad</option>
+            <option value="Tráng miệng">Tráng miệng</option>
+            <option value="Thức uống">Thức uống</option>
+        </select>
     </div>
 
     <div class="form-group">
@@ -13,7 +26,12 @@
 
     <div class="form-group">
       <label for="price">Price(VND)</label>
-      <input type="text" class="form-control" id="price" name="price">
+      <input type="text" class="form-control" id="price" name="price" placeholder="Giá bán">
+    </div>
+
+    <div class="form-group">
+        <label class="info__label" for="image">Hình ảnh món ăn</label>
+        <input type="file" name="image" class="filepond"/>
     </div>
     <button type="submit" class="btn btn-dark">Thêm món ăn</button>
   </form>
