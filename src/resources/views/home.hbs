@@ -52,6 +52,7 @@
         {{#each dishes}}
         {{#if_eq this.type 'Pizza'}}
             <div class="category-item">
+                <input type="hidden" class="category-item-id" value="{{this._id}}" name="id">
                 <img class="category-item-image" src="/images/{{this.image}}" alt="">
                 <h1 class="category-item-title">{{this.name}}</h1>
                 <p class="category-item-detail">{{this.description}}</p>
@@ -67,6 +68,7 @@
         {{#each dishes}}
         {{#if_eq this.type  'Khai vị'}}
             <div class="category-item">
+                <input type="hidden" class="category-item-id" value="{{this._id}}" name="id">
                 <img class="category-item-image" src="/images/{{this.image}}" alt="">
                 <h1 class="category-item-title">{{this.name}}</h1>
                 <p class="category-item-detail">{{this.description}}</p>
@@ -82,6 +84,7 @@
         {{#each dishes}}
         {{#if_eq this.type  'Mỳ ý'}}
             <div class="category-item">
+                <input type="hidden" class="category-item-id" value="{{this._id}}" name="id">
                 <img class="category-item-image" src="/images/{{this.image}}" alt="">
                 <h1 class="category-item-title">{{this.name}}</h1>
                 <p class="category-item-detail">{{this.description}}</p>
@@ -97,6 +100,7 @@
         {{#each dishes}}
         {{#if_eq this.type  'Salad'}}
             <div class="category-item">
+                <input type="hidden" class="category-item-id" value="{{this._id}}" name="id">
                 <img class="category-item-image" src="/images/{{this.image}}" alt="">
                 <h1 class="category-item-title">{{this.name}}</h1>
                 <p class="category-item-detail">{{this.description}}</p>
@@ -112,6 +116,7 @@
         {{#each dishes}}
         {{#if_eq this.type  'Tráng miệng'}}
             <div class="category-item">
+                <input type="hidden" class="category-item-id" value="{{this._id}}" name="id">
                 <img class="category-item-image" src="/images/{{this.image}}" alt="">
                 <h1 class="category-item-title">{{this.name}}</h1>
                 <p class="category-item-detail">{{this.description}}</p>
@@ -127,6 +132,7 @@
         {{#each dishes}}
         {{#if_eq this.type  'Thức uống'}}
             <div class="category-item">
+                <input type="hidden" class="category-item-id" value="{{this._id}}" name="id">
                 <img class="category-item-image" src="/images/{{this.image}}" alt="">
                 <h1 class="category-item-title">{{this.name}}</h1>
                 <p class="category-item-detail">{{this.description}}</p>

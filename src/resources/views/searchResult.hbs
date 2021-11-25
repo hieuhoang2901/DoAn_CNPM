@@ -5,6 +5,7 @@
     <div class="category">
     {{#each dishes}}
         <div class="category-item">
+            <input type="hidden" class="category-item-id" value="{{this._id}}" name="id">
             <img class="category-item-image" src="/images/{{this.image}}" alt="">
             <h1 class="category-item-title">{{this.name}}</h1>
             <p class="category-item-detail">{{this.description}}</p>

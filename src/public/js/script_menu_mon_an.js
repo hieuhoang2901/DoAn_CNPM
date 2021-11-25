@@ -42,7 +42,7 @@ if (document.readyState == 'loading') {
 } else {
     ready()
 }
-var giohang = []; // (title, price, imageSrc, quantity)
+var giohang = []; // (title, price, imageSrc, quantity, itemID)
 
 function ready() {
     var removeCartItemButtons = document.getElementsByClassName('btn-danger')
@@ -76,6 +76,7 @@ function ready() {
             var to_money = (giohang[i][1]).toString().replace('đ', '').replace('.', '').toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".") + 'đ'
             var cartRowContents = `
                 <div class="cart-item cart-column">
+                    <input type="hidden" class="cart-item-id" value="${giohang[i][4]}" name="id">
                     <img class="cart-item-image" src="${giohang[i][2]}" width="100" height="100">
                     <span class="cart-item-title">${giohang[i][0]}</span>
                 </div>
@@ -115,11 +116,12 @@ function addToCartClicked(event) {
     var title = shopItem.getElementsByClassName('category-item-title')[0].innerText
     var price = shopItem.getElementsByClassName('category-item-price')[0].innerText
     var imageSrc = shopItem.getElementsByClassName('category-item-image')[0].src
-    addItemToCart(title, price, imageSrc)
+    var itemID = shopItem.getElementsByClassName('category-item-id')[0].value
+    addItemToCart(title, price, imageSrc, itemID)
     updateCartTotal()
 }
 
-function addItemToCart(title, price, imageSrc) {
+function addItemToCart(title, price, imageSrc, itemID) {
     var cartRow = document.createElement('div')
     cartRow.classList.add('cart-row')
     var cartItems = document.getElementsByClassName('cart-items')[0]
@@ -131,7 +133,7 @@ function addItemToCart(title, price, imageSrc) {
             return
         }
     }
-    var sp = new Array(title, price, imageSrc, 1)
+    var sp = new Array(title, price, imageSrc, 1, itemID)
     giohang.push(sp)
     localStorage.setItem("giohang", JSON.stringify(giohang));
 
@@ -139,6 +141,7 @@ function addItemToCart(title, price, imageSrc) {
     var to_money = price.replace('đ', '').replace('.', '').toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".") + 'đ'
     var cartRowContents = `
         <div class="cart-item cart-column">
+            <input type="hidden" class="cart-item-id" value="${itemID}" name="id">
             <img class="cart-item-image" src="${imageSrc}" width="100" height="100">
             <span class="cart-item-title">${title}</span>
         </div>
@@ -174,8 +177,11 @@ function updateCartTotal() {
         var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
         var price = parseInt(priceElement.innerText.replace('đ', '').replace('.', ''))
         var quantity = quantityElement.value
+        var idElement = cartRow.getElementsByClassName('cart-item-id')[0]
+        var itemID = idElement.value
+        // console.log(itemID)
 
-        var sp = new Array(title, price, imageSrc, quantity)
+        var sp = new Array(title, price, imageSrc, quantity, itemID)
         giohang.push(sp)
         // console.log(giohang)
         localStorage.setItem('giohang', JSON.stringify(giohang));
