@@ -1,0 +1,78 @@
+<div class="main">
+    <form method="POST" class="form" id="form-1" action="/user/register">
+
+      <h3 class="heading">Sign up new account</h3>
+      <p class="desc">Connect to our restaurant</p>
+      {{#if message}}
+      <div class="alert alert-danger" role="alert">{{message}}</div>
+      {{/if}}
+      <div class="spacer"></div>
+
+      <div class="form-group">
+        <label for="fullname" class="form-label">Full Name</label>
+        <input id="fullname" name="name" type="text" placeholder="Ex: Nguyen Van A" class="form-control">
+        <span class="form-message"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="phonenumber" class="form-label">Phone number</label>
+        <input id="phonenumber" name="phonenumber" type="number" placeholder="Ex: 0969696969" class="form-control">
+        <span class="form-message"></span>
+      </div>
+      
+      <div class="form-group">
+        <label for="email" class="form-label">Email</label>
+        <input id="email" name="email" type="text" placeholder="Ex: email@domain.com" class="form-control">
+        <span class="form-message"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="password" class="form-label">Password</label>
+        <input id="password" name="password" type="password" placeholder="Enter password" class="form-control">
+        <span class="form-message"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="password_confirmation" class="form-label">Confirm Password</label>
+        <input id="password_confirmation" name="cfpassword" placeholder="Confirm Password" type="password" class="form-control">
+        <span class="form-message"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="address" class="form-label">Address</label>
+        <input id="address" name="address" placeholder="Address" type="text" class="form-control">
+        <span class="form-message"></span>
+      </div>
+      <button class="form-submit" type="submit">Submit</button>
+    </form>
+</div>
+    
+<script>
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // Mong muốn của chúng ta
+    Validator({
+      mainform: '.form',
+      form: '#form-1',
+      formGroupSelector: '.form-group',
+      errorSelector: '.form-message',
+      rules: [
+        Validator.isRequired('#fullname', 'Please enter your full name!'),
+        Validator.isEmail('#email'),
+        Validator.minLength('#password', 6),
+        Validator.isRequired('#password_confirmation'),
+        Validator.isConfirmed('#password_confirmation', function () {
+          return document.querySelector('#form-1 #password').value;
+        }, 'Incorrect password!')
+      ],
+      //onSubmit: function (data) {
+        // Call API
+        // console.log(data);
+        //mainform.submit();
+      //}
+    });
+
+
+  });
+
+</script>

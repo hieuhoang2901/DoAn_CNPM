@@ -1,0 +1,69 @@
+<div class="create grid">
+    <h1 class="under-line-effect under-line-effect--red">Thêm quản lý</h1>
+    {{#if message}}
+    <div class="alert alert-danger" role="alert">{{message}}</div>
+    {{/if}}
+    <form method="POST" action="/admin/createManager">
+    <div class="row">
+        <div class="col l-6" style="padding-right: 60px;">
+            <div class="form-group">
+                <label class="info__label" for="name">Tên quản lý</label>
+                <input type="text"  class="info__value" id="name" name="name">
+            </div>
+            <div class="form-group">
+                <label class="info__label" for="email">Email</label>
+                <input type="text"  class="info__value" id="email" name="email">
+            </div>
+            <div class="form-group">
+                <label class="info__label" for="phonenumber">Số điện thoại</label>
+                <input type="text"  class="info__value" id="phonenumber" name="phonenumber">
+            </div>
+            <div class="form-group">
+                <label class="info__label" for="address">Địa chỉ</label>
+                <input type="text"  class="info__value" id="address" name="address">
+            </div>
+            <div class="form-group">
+                <label for="password" class="info__label">Password</label>
+                <input class="info__value" id="password" name="password"  type="password" placeholder="Enter password">
+                <span class="form-message"></span>
+            </div>
+            <div class="form-group">
+                <label for="password_confirmation" class="info__label">Confirm Password</label>
+                <input class="info__value" id="password_confirmation" name="cfpassword"  placeholder="Confirm Password" type="password">
+                <span class="form-message"></span>
+            </div>
+        </div>
+    </div>
+            
+        <button type="submit" class="product__item-btn btn-red" style="color: white; margin-top: -20px;">Submit</button>
+    </form>
+</div>
+<script>
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // Mong muốn của chúng ta
+    Validator({
+      mainform: '.form',
+      form: '#form-1',
+      formGroupSelector: '.form-group',
+      errorSelector: '.form-message',
+      rules: [
+        Validator.isRequired('#name', 'Please enter your full name!'),
+        Validator.isEmail('#email'),
+        Validator.minLength('#password', 6),
+        Validator.isRequired('#password_confirmation'),
+        Validator.isConfirmed('#password_confirmation', function () {
+          return document.querySelector('#form-1 #password').value;
+        }, 'Incorrect password!')
+      ],
+      //onSubmit: function (data) {
+        // Call API
+        // console.log(data);
+        //mainform.submit();
+      //}
+    });
+
+
+  });
+
+</script>
