@@ -5,7 +5,7 @@ const { mongooseToObject } = require('../../util/mongoose')
 class DishController {
 
   show(req, res, next) {
-    Course.findOne({ slug: req.params.slug })
+    Dish.findOne({ slug: req.params.slug })
       .then((course) => 
         res.render('courses/show', {course: mongooseToObject(course)})
       )
@@ -50,7 +50,7 @@ class DishController {
 
   // [PATCH] /courses/:id/restore
   restore(req, res, next) {
-    Course.restore({ _id: req.params.id})
+    Dish.restore({ _id: req.params.id})
       .then(() => res.redirect('back'))
       .catch(next);
   }

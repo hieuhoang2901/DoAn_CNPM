@@ -1,6 +1,6 @@
-<form name="container-form" class="mt-4" method="POST" action="/courses/handle-form-actions-2">
+<form name="container-form" class="mt-4" method="POST" action="/foods/handle-form-actions-2">
   <div>
-    <a href="/me/stored/courses">Quay lại</a>
+    <a href="/me/stored/foods">Quay lại</a>
     <h3>Các món ăn đã xóa</h3>
     <div class="mt-4 d-flex align-items-center">
       <div class="form-check">
@@ -18,7 +18,7 @@
     </div>
   </div>
 
-  <table class="table table-striped table-bordered table-dark mt-4">
+  <table class="table table-striped table-bordered table-light mt-4">
     <thead>
       <tr>
         <th></th>
@@ -41,7 +41,7 @@
           </td>
           <th scope="row">{{sum @index 1}}</th> 
           <td>{{this.name}}</td>
-          <td>{{this.level}}</td>
+          <td>{{this.description}}</td>
           <td>{{this.deletedAt}}</td>
           <td>
             <a href="" class="btn btn-dark btn-restore" data-id="{{this._id}}">Khôi phục</a>
@@ -113,14 +113,14 @@
 
     // When delete course btn clicked
     btnDeleteCourse.onclick = function() {
-      deleteForm.action = '/courses/' + courseId + '/force?_method=DELETE';
+      deleteForm.action = '/foods/' + courseId + '/force?_method=DELETE';
       deleteForm.submit();
     }
 
     restoreBtn.click(function(e) {
       e.preventDefault();
       var courseId = $(this).data('id');
-      restoreForm.action = '/courses/' + courseId + '/restore?_method=PATCH';
+      restoreForm.action = '/foods/' + courseId + '/restore?_method=PATCH';
       restoreForm.submit();
     });
 

@@ -10,7 +10,7 @@ router.post('/handle-form-actions', dishController.handleFormActions);
 router.post('/handle-form-actions-2', dishController.handleFormActions2);
 router.put('/:id', dishController.update);
 router.patch('/:id/restore', dishController.restore);
-// router.delete('/:id', dishController.delete);
+router.delete('/:id', dishController.destroy);
 router.delete('/:id/force', dishController.forcedestroy);
 router.get('/:slug', dishController.show);
 
