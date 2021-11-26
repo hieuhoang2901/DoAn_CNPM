@@ -67,3 +67,14 @@ route(app);
 app.listen(port, () => {
   console.log(`Restaurant app listening at http://localhost:${port}`);
 });
+
+
+// add them
+const Handlebars = require('handlebars')
+Handlebars.registerHelper('if_eq', function(a, b, opts) {
+  if (a == b) {
+      return opts.fn(this)
+  } else {
+      return opts.inverse(this)
+  }
+});
