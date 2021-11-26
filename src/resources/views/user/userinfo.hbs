@@ -1,0 +1,56 @@
+<div class="content__header" style="margin-top: 100px">
+    <h3 class="content__header-heading">
+        <span class="under-line-effect under-line-effect--red">YOUR PROFILE</span>
+    </h3>
+</div>
+
+
+<div class="grid" style="padding-left: 120px;"> 
+    <div class="row">
+        <div class="col l-6 user-img-background">
+            <div class="pl-40 testing">
+                {{!-- <form method="POST" action="/user/updateinfo/{{user._id}}?_method=PUT"> --}}
+                <div class="profile-wrapper">
+
+                    <label class="info__label" for="Name" style="padding-left: 75px;">Profile Picture</label>
+                    <div id="profile-container">
+                        {{!-- <div class="profileImage_change"><i class="far fa-edit"></i>Change your Avatar</div> --}}
+                        <div class="profileImage__wrap">
+                            {{#if user.image}}
+                            <image id="profileImage" src="{{imageload user.image  user.imageType}}" />
+                            {{else}}
+                            <image id="profileImage" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" />
+                            {{/if}}
+                        </div>
+                    </div> 
+                </div>
+
+                    {{!-- <input id="imageUpload" type="file" name="image" required="" capture> --}}
+                    {{!-- <input type="file" class="filepond" name="image" > --}}
+                    {{!-- <button type="submit" class="btn btn-primary">Submit</button>    --}}
+                </form>
+            </div>
+        </div>
+        <div class="col l-6" style="margin-bottom: 100px;">
+            <div class="user__info pl-40">
+                <form method="POST" action="/user/updateinfo/{{user._id}}?_method=PUT">
+                    <label class="info__label" for="Name">Name</label><input class="info__value" type="text" name="name"
+                        readonly value='{{user.name}}'></input>
+
+                    <label class="info__label" for="Address">Address</label><input class="info__value" type="text"
+                        name="address" readonly value="{{user.address}}"></input>
+
+                    <label class="info__label" for="Email">Email</label><span class="info__value" type="email"
+                        name="email" readonly >{{user.email}}</span>
+                    <label class="info__label" for="image">Change image</label>
+                    <input type="file" class="filepond info__image" name="image" >
+                    <input type="button" value="Edit profile" class="product__item-btn btn-red"
+                        style="cursor: pointer; width: 150px; color: white"></input>
+                    
+                    <input type="submit" class="product__item-btn btn-red" style="color: white;" disabled></input>    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+     
