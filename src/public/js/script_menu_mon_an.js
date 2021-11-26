@@ -101,6 +101,17 @@ function removeCartItem(event) {
     updateCartTotal()
 }
 
+function removeAllCartItem() { // xoa all item
+    var removeCartItemButtons = document.getElementsByClassName('btn-danger')
+    while (removeCartItemButtons.length > 0) {
+        var button = removeCartItemButtons[0]
+        button.parentElement.parentElement.remove()
+    }
+    updateCartTotal();
+    giohang.length = 0;
+    localStorage.setItem('giohang', JSON.stringify(giohang));
+}
+
 function quantityChanged(event) {
     var input = event.target
     if (isNaN(input.value) || input.value <= 0) {
@@ -184,11 +195,11 @@ function updateCartTotal() {
         var sp = new Array(title, price, imageSrc, quantity, itemID)
         giohang.push(sp)
         console.log(giohang)
-        localStorage.setItem('giohang', JSON.stringify(giohang));
 
         total = total + (price * quantity)
         total_quantity = total_quantity + parseInt(quantity)
     }
+    localStorage.setItem('giohang', JSON.stringify(giohang));
     document.getElementsByClassName('cart-total-price')[0].innerText = total.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".") + 'đ'
     document.getElementsByClassName('gio-hang cart-icon')[0].innerText = 'Giỏ hàng(' + total_quantity + ')'
 }
@@ -220,6 +231,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var payment_form = document.forms['payment-form'];
     var input_cart = document.getElementById('cart');
     var paymentBtn = document.getElementById('payment-btn');
+    // var removeAllBtn = document.getElementById('remove-all-btn');
 
     paymentBtn.onclick = function () {
         var arr = JSON.stringify(giohang);
@@ -227,4 +239,8 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log(arr);
         payment_form.submit();
     };
+    // removeAllBtn.onclick = function () {
+    //     removeAllCartItem();
+    //     alert("ĐÃ XÓA HẾT CÁC MÓN TRONG GIỎ HÀNG !")
+    // };
 });
