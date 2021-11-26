@@ -40,11 +40,11 @@
                         <div class="admin_detail_content_order">
                             <h5 style="color: blue;">Đơn hàng</h5>
                             <h6>- Dish:
-                                {{#each order.dishName}}
-                                <span style="font-weight: 400;">{{this}}-</span>
+                                {{#each order.orders}}
+                                <span style="font-weight: 400;">{{this.name}}-</span>
                                 {{/each}}
                             </h6>
-                            <h6>- Total Cost: <span style="font-weight: 400;">{{order.totalCost}}</span></h6>
+                            <h6>- Total Cost: <span style="font-weight: 400;">{{order.totalPrice}}</span></h6>
                             <h6>- Feedback: <span style="font-weight: 400;">{{order.feedback}}</span></h6>
                             <br />
                         </div>

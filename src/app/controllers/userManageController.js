@@ -21,7 +21,8 @@ exports.deleteUser = async (req, res) => {
 }
 exports.detailUser = async (req, res) => {
     const user = await User.findOne({ phone: req.params.phone });
-    const order = await Order.findOne({ userName: user._id });
+    const order = await Order.findOne({ userID: user._id });
+    console.log(order);
     res.render('manage/detail', { user: MongoosetoObject(user), order: MongoosetoObject(order) });
 }
 exports.feedback = async (req, res) => {
