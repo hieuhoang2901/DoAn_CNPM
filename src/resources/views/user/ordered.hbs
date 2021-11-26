@@ -62,7 +62,7 @@
         
         {{!-- Đơn hàng đang được giao --}}
           {{else if (isMatch ../user.permission "Customer") }}
-          <a href="/user/complete/{{this._id}}"><button class="product__item-btn btn-green" style="background-color: rgb(151, 224, 151);">Order Received</button></a>
+          <a href="/user/complete/{{this._id}}"><button class="product__item-btn btn-green" style=":hover {background-color: rgb(151, 224, 151);}">Order Received</button></a>
           {{else}}
 
         {{!-- View quản lý --}}
