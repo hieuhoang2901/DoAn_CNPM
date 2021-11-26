@@ -2,14 +2,14 @@
   <div id="accordion">
   <div class="card">
     {{#if (isMatch user.permission "Manager")}}
-    <h1 class="under-line-effect under-line-effect--red" style="width: 160px; text-align: center; margin-left: 10px">Các đơn mua hàng</h1>
+    <h1 class="under-line-effect under-line-effect--red" style=" text-align: center; margin-left: 10px">Các đơn mua hàng</h1>
     {{else}}
-    <h1 class="under-line-effect under-line-effect--red" style="width: 160px; text-align: center; margin-left: 10px">Lịch sử mua hàng</h1>
+    <h1 class="under-line-effect under-line-effect--red" style=" text-align: center; margin-left: 10px">Lịch sử mua hàng</h1>
     {{/if}}
     {{#each orders }}
     <div class="card-header" id="heading{{@index}}">
       <h5 class="mb-0">
-        <button class="product__item-btn btn-link btn-blue" style="color: white;" data-toggle="collapse" data-target="#collapse{{@index}}" aria-expanded="true" aria-controls="collapse{{@index}}">
+        <button class="product__item-btn btn-link btn-blue" style="color: rgb(48, 34, 34);" data-toggle="collapse" data-target="#collapse{{@index}}" aria-expanded="true" aria-controls="collapse{{@index}}">
           Hóa đơn {{sum @index 1}}
           {{#if (isMatch ../user.permission "Manager")}}
             Của: {{this.userName}}
@@ -56,23 +56,22 @@
         
         {{!-- Đơn hàng hoàn thành --}}
           {{#if (isMatch this.status "Completed")}}  
-            <span>ORDER COMPLETED</span>
+           <a href="/user/complete/{{this._id}}"><button class="product__item-btn btn-green">Give feedback</button></a>
         {{!-- Đơn hàng đã hủy --}}
            {{else if (isMatch this.status "Canceled")}}
-            <span>ORDER CANCELED</span>
         
         {{!-- Đơn hàng đang được giao --}}
           {{else if (isMatch ../user.permission "Customer") }}
-          <a href="/user/complete/{{this._id}}" type="submit" class="product__item-btn btn-green" style="color: white;">Order Received</a>
+          <a href="/user/complete/{{this._id}}"><button class="product__item-btn btn-green" style="background-color: rgb(151, 224, 151);">Order Received</button></a>
           {{else}}
 
         {{!-- View quản lý --}}
           <span>ORDER PENDING</span>
           {{/if}} 
           {{#if (isMatch this.status "Incomplete")}} 
-          <button type="button" class="product__item-btn btn-red" style="color: white;" data-toggle="modal" data-target="#cancel-order" data-id="{{this._id}}">CANCEL</button> {{/if}}
+          <button type="button" class="product__item-btn btn-red danger" style="background-color: rgb(223, 84, 84);" data-toggle="modal" data-target="#cancel-order" data-id="{{this._id}}">CANCEL</button> {{/if}}
           
-          <button type="button" class="product__item-btn btn-red" style="color: white;" data-toggle="modal" data-target="#delete-order" data-id="{{this._id}}">DELETE</button>
+          <button type="button" class="product__item-btn btn-red " data-toggle="modal" data-target="#delete-order" data-id="{{this._id}}">DELETE</button>
       </div> 
       
     </div>

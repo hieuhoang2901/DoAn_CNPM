@@ -106,13 +106,23 @@ class UserController {
                 //         .catch(next);
                 // }
                 
-                res.render('user/feedback');
+                res.render('user/feedback',{
+                    user: req.user,
+                    orderID: order._id,
+                });
             })
             .catch(next);
     }
 
     feedback(req,res,next) {
-        res.render('user/feedback');
+        // res.json(req.body);
+        Order.updateOne({_id: req.body.id}, {
+            $set: {
+                feedback: req.body.feedback,
+            }
+        })
+            .then(() => res.redirect('/user/ordered'))
+            .catch(next);
     }
 
     // [POST] /user/payment 

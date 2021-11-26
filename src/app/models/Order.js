@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const mongoosedelete = require('mongoose-delete');
 const Schema = mongoose.Schema;
-const { ordering } = require('../controllers/UserController');
 
 const Order = new Schema(
     {
