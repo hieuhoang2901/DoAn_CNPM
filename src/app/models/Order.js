@@ -15,9 +15,7 @@ const Order = new Schema(
         paymentMethod: {type: String, required: true},
         status: {type: String, default:'Incomplete', required: true},
         paymentStatus: {type: String, required: true},
-        feedback: {type: String, maxlength: 600}
-
-       
+        feedback: {type: String, maxlength: 600} 
     },
     { timestamps: true },
 );

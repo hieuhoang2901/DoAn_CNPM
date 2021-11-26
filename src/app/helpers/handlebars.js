@@ -47,4 +47,8 @@ module.exports = {
     },
 
     calTotalQty: (totalQty) => {return totalQty ? totalQty : 0;},
+    sub: (a, b) => a - b,
+    email: (value) => {
+      return value.split('@')[0] + '@...'
+    }
 };
