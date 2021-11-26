@@ -136,7 +136,6 @@ class UserController {
          req.session.cart = cart;
         // res.json(req.session.cart);
         res.render('user/onlPayment',{
-            noheader: true,
             cartdishes: cart.items,
             subtotalPrice: cart.totalPrice,
             totalPrice: cart.totalPrice + 5,

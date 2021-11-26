@@ -10,7 +10,7 @@
     {{#if (isMatch user.permission "Admin")}}
       <li class="header__navbar-item">
         <a href="" class="header__navbar-item-link">
-              <img src="/image/star_icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+              <img src="/images/star_icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
               Admin
         </a>
         <ul class="header__subnav-list">
@@ -31,7 +31,7 @@
     {{#if (isMatch user.permission "Manager")}}
       <li class="header__navbar-item">
         <a href="" class="header__navbar-item-link">
-              <img src="/image/star_icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+              <img src="/images/star_icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
               {{user.name}}
         </a>
         <ul class="header__subnav-list">
@@ -74,15 +74,16 @@
 
     {{#unless user}}
       <li class="header__navbar-item">
-        <a href="/loginpage" class="header__navbar-item-link">ACCOUNT</a>
-        <ul class="header__subnav-list">
+        <a href="/loginpage" class="header__navbar-item-link">Login</a>
+        <a href="/register" class="header__navbar-item-link">Register</a>
+        {{!-- <ul class="header__subnav-list">
           <li class="header__subnav-item">
             <a href="/loginpage" class="header__subnav-link">Sign in</a>
           </li>
           <li class="header__subnav-item header__subnav-item">
             <a href="/register" class="header__subnav-link">Register</a>
           </li>
-        </ul>
+        </ul> --}}
       </li>
     {{/unless}}
   </div>
