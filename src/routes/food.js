@@ -2,9 +2,12 @@ const express = require('express');
 const router = express.Router();
 
 const dishController = require('../app/controllers/DishController');
+const managerRequire    = require('../app/middlewares/RequiresManager');
+const requireLogin = require('../app/middlewares/LoginRequires');
 
+router.use(requireLogin)
+router.use(managerRequire)
 router.post('/store', dishController.store);
-router.get('/create', dishController.create);
 router.get('/:id/edit', dishController.edit);
 router.post('/handle-form-actions', dishController.handleFormActions);
 router.post('/handle-form-actions-2', dishController.handleFormActions2);

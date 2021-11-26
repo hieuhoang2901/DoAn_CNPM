@@ -231,7 +231,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var payment_form = document.forms['payment-form'];
     var input_cart = document.getElementById('cart');
     var paymentBtn = document.getElementById('payment-btn');
-    // var removeAllBtn = document.getElementById('remove-all-btn');
+    var removeAllBtn1 = document.getElementById('clear-cart-btn1');
+    var removeAllBtn2 = document.getElementById('clear-cart-btn2');
 
     paymentBtn.onclick = function () {
         var arr = JSON.stringify(giohang);
@@ -239,8 +240,12 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log(arr);
         payment_form.submit();
     };
-    // removeAllBtn.onclick = function () {
-    //     removeAllCartItem();
-    //     alert("ĐÃ XÓA HẾT CÁC MÓN TRONG GIỎ HÀNG !")
-    // };
+    removeAllBtn1.onclick = function () {
+        removeAllCartItem();
+        console.log("ĐÃ XÓA HẾT CÁC MÓN TRONG GIỎ HÀNG !")
+    };
+    removeAllBtn2.onclick = function () {
+        removeAllCartItem();
+        console.log("ĐÃ XÓA HẾT CÁC MÓN TRONG GIỎ HÀNG !")
+    };
 });

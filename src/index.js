@@ -1,32 +1,32 @@
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
-const path              = require('path');
-const express           = require('express');
-const flash             = require('express-flash');
-const session           = require('express-session');
-const handlebars        = require('express-handlebars');
-const SortMiddleware    = require('./app/middlewares/SortMiddleware');
-const app               = express();
-const port              = 3000;
-const db                = require('./config/db');
-const route             = require('./routes/index');
-const methodOverride    = require('method-override');
-const getUser           = require('./app/middlewares/SetUser');
-const bodyParser        = require('body-parser');
+const path = require('path');
+const express = require('express');
+const flash = require('express-flash');
+const session = require('express-session');
+const handlebars = require('express-handlebars');
+const SortMiddleware = require('./app/middlewares/SortMiddleware');
+const app = express();
+const port = 3000;
+const db = require('./config/db');
+const route = require('./routes/index');
+const methodOverride = require('method-override');
+const getUser = require('./app/middlewares/SetUser');
+const bodyParser = require('body-parser');
 // const morgan            = require('morgan');
 db.connect();
 
 app.use(flash());
 app.use(
   session({
-      secret: 'process.env.SECERT_SESSION_KEY',
-      resave: true,
-      saveUninitialized: false,
+    secret: 'process.env.SECERT_SESSION_KEY',
+    resave: true,
+    saveUninitialized: false,
   }),
 );
 
-app.use(function(req,res,next) {
+app.use(function (req, res, next) {
   res.locals.session = req.session;
   next();
 });
@@ -42,7 +42,7 @@ app.use(getUser);
 
 app.use(
   express.urlencoded({
-      extended: true,
+    extended: true,
   }),
 );
 
@@ -54,8 +54,8 @@ app.use(express.static(path.join(__dirname, 'public'))); // set static public
 app.engine(
   'hbs',
   handlebars({
-      extname: '.hbs', // change file types name
-      helpers: require('./app/helpers/handlebars'),
+    extname: '.hbs', // change file types name
+    helpers: require('./app/helpers/handlebars'),
   }),
 );
 
@@ -71,10 +71,10 @@ app.listen(port, () => {
 
 // add them
 const Handlebars = require('handlebars')
-Handlebars.registerHelper('if_eq', function(a, b, opts) {
+Handlebars.registerHelper('if_eq', function (a, b, opts) {
   if (a == b) {
-      return opts.fn(this)
+    return opts.fn(this)
   } else {
-      return opts.inverse(this)
+    return opts.inverse(this)
   }
 });
