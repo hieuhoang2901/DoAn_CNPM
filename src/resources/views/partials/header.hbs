@@ -54,25 +54,19 @@
 
     {{#if (isMatch user.permission "Customer")}}
       <li class="header__navbar-item">
-        <a href="/user" class="header__navbar-item-link">
-              <img src="{{imageload user.image user.imageType}}" id="profileImage" width="30" height="30" class="d-inline-block align-top" alt="">
+        <a href="#" class="header__navbar-item-link">
+              <img src="http://simpleicon.com/wp-content/uploads/account.png" id="profileImage" width="30" height="30" class="d-inline-block align-top" alt="">
               {{user.name}}
         </a>
         <ul class="header__subnav-list">
           <li class="header__subnav-item">
-            <a href="/user" class="header__subnav-link">Thông tin người dùng</a>
+            <a href="/user" class="header__subnav-link">My Info</a>
           </li>
           <li class="header__subnav-item header__subnav-item">
-            <a href="/user/ordering" class="header__subnav-link">Giỏ Hàng</a>
+            <a href="/user/ordered" class="header__subnav-link">Order History</a>
           </li>
           <li class="header__subnav-item header__subnav-item">
-            <a href="/user/ordered" class="header__subnav-link">Lịch sử mua hàng</a>
-          </li>
-          <li class="header__subnav-item header__subnav-item">
-            <a href="/user/viewbooktable2" class="header__subnav-link">Bàn đã đặt</a>
-          </li>
-          <li class="header__subnav-item header__subnav-item">
-            <a href="/user/logout" class="header__subnav-link">Đăng xuất</a>
+            <a href="/user/logout" class="header__subnav-link">Logout</a>
           </li>
         </ul>
       </li>
@@ -97,13 +91,13 @@
 <nav class="menu-all navbar navbar-expand-lg navbar-dark">
   <div class="container menu">
     <div class="heading-list-1">
-      <a class="heading-item-list" onclick="if(window.location.pathname == '/') window.scrollTo({ top: 0, behavior: 'smooth' }); else window.location.href='/'">Home</a>
-      <a class="heading-item-list" href="">Pizza</a>
-      <a class="heading-item-list" href="">Khai vị</a>
-      <a class="heading-item-list" href="">Mì Ý</a>
-      <a class="heading-item-list" href="">Salad</a>
-      <a class="heading-item-list" href="">Tráng miệng</a>
-      <a class="heading-item-list" href="">Thức uống</a>
+      <a class="heading-item-list" onclick="if(window.location.pathname == '/') window.scrollTo({ top: 0, behavior: 'smooth' }); else window.location.href='/'" href="">Home</a>
+      <a class="heading-item-list" onclick="if(window.location.pathname == '/') scroll_to('pizza-list-view'); else window.location.href='/#pizza-list-view'">Pizza</a>
+      <a class="heading-item-list" onclick="if(window.location.pathname == '/') scroll_to('khaivi-list-view'); else window.location.href='/#khaivi-list-view'">Khai vị</a>
+      <a class="heading-item-list" onclick="if(window.location.pathname == '/') scroll_to('myy-list-view'); else window.location.href='/#myy-list-view'">Mì Ý</a>
+      <a class="heading-item-list" onclick="if(window.location.pathname == '/') scroll_to('salad-list-view'); else window.location.href='/#salad-list-view'">Salad</a>
+      <a class="heading-item-list" onclick="if(window.location.pathname == '/') scroll_to('trangmieng-list-view'); else window.location.href='/#trangmieng-list-view'">Tráng miệng</a>
+      <a class="heading-item-list" onclick="if(window.location.pathname == '/') scroll_to('thucuong-list-view'); else window.location.href='/#thucuong-list-view'">Thức uống</a>
     </div>
     <div class="">
       <a href="" class="gio-hang cart-icon" onmouseover="show_cart()" onmouseleave="close_cart()">

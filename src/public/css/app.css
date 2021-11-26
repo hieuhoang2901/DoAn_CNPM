@@ -63,13 +63,13 @@ h2 {
 }
 
 .logo-img {
-    width: 50px;
-    height: auto;
+    width: 40px;
+    height: 40px;
     margin-right: 32px;
     border-radius: 50%;
 }
 .logo-img2 {
-    font-size: 2rem;
+    font-size: 1.7rem;
     color:  #d80000;
     font-weight: bold;
     font-family:'Courier New', Courier, monospace;
@@ -89,7 +89,7 @@ h2 {
     margin-right: 80px;
 }
 .menu-all {
-    background-color: rgb(187, 41, 41);
+    background-color: #333;
     display: flex;
 }
 .menu {
@@ -101,7 +101,6 @@ h2 {
 .heading-list {
     display: flex;
 }
-
 .heading-item-list{
     text-decoration: none;
     color : white;
@@ -109,6 +108,7 @@ h2 {
     font-family: 'Courier New', Courier, monospace;
     margin-right: 2.5rem;
     font-weight: 550;
+    cursor: pointer;
 }
 .heading-item-list:first-child{
     margin-left: 5rem;
