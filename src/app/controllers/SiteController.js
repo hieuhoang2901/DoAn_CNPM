@@ -21,19 +21,19 @@ class SiteController {
             })
             .catch(next);
     }
-
-    search(req, res, next) {
-        if(req.query.foodname){
-            const searchFied = req.query.foodname;
-            Dish.find({name:{$regex: searchFied, $options: '$i'}})
-                .then((dishes) => {
-                    res.render('Site/search', { 
-                        user: req.user,
-                        dishes: mutiMongoosetoObject(dishes),
-                    });
-                })    
-        }
-        else return res.render('Site/search', { user: req.user});   
+    redirect_to_search(req, res, next) {
+        var data = (req.body.searchBar).replace(' ', '-');
+        res.redirect('/search/' + data);
+    }
+    search(req,res,next) {
+        var data = (req.params.data).replace('-', ' ');
+        Dish.find({'name' : new RegExp(data, 'i')})
+        .then(dishes => {
+          res.render('searchResult', {
+            dishes: mutiMongoosetoObject(dishes)
+          });
+        })
+    .catch(next);
     }
 
     loginpage(req, res, next) {

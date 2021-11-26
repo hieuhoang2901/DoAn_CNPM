@@ -15,9 +15,10 @@
 
 {{!-- Search bar --}}
 <form id="search-bar" method="post" action="/">
-    <input type="search" id="search-input" name="searchBar" placeholder="Search..." required>
+    <input type="search" id="search-input" name="searchBar" placeholder="Tìm kiếm..." required>
     <button><i class="fa fa-search"></i></button>
 </form>
+
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
@@ -46,7 +47,7 @@
 </style>
 {{!-- Menu mon --}}
 <section class="category-wrapper">
-        <h3><u>Thực đơn</u></h3>
+        <h2 class="real-title">Thực đơn</h2>
         <h3 class="list-title" id="pizza-list-view">Pizza</h3>
         <div class="category">
         {{#each dishes}}

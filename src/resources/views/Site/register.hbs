@@ -1,8 +1,7 @@
 <div class="main">
     <form method="POST" class="form" id="form-1" action="/user/register">
 
-      <h3 class="heading">Sign up new account</h3>
-      <p class="desc">Connect to our restaurant</p>
+      <h3 class="fheading">Sign Up</h3>
       {{#if message}}
       <div class="alert alert-danger" role="alert">{{message}}</div>
       {{/if}}
@@ -203,13 +202,13 @@ html {
 /*  */
 
 .main {
-  background: #f1f1f1;
+  background: #e6e5e5;
   min-height: 100vh;
   display: flex;
   justify-content: center;
 }
 .form {
-  width: 380px;
+  width: 420px;
   min-height: 100px;
   padding: 32px 24px;
   text-align: center;
@@ -219,8 +218,11 @@ html {
   align-self: center;
   box-shadow: 0 2px 5px 0 rgba(51,62,73,.1);
 }
-.form .heading {
+.form .fheading {
   font-size: 2rem;
+  text-align: center;
+  color: #c60b0b;
+  font-weight: bold;
 }
 .form .desc {
   text-align: center;

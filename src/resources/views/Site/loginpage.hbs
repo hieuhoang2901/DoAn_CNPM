@@ -1,7 +1,6 @@
 <div class="main">
     <form method="post" class="form" id="form-2" action="/user/login">
-        <h3 class="heading">Sign In</h3>
-        <p class="desc">To connect to our restaurant</p>
+        <h3 class="fheading">Sign In</h3>
         {{#if message}}
             <div class="alert alert-danger" role="alert">{{message}}</div>
         {{/if}}
@@ -24,7 +23,9 @@
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label" for="exampleCheck1">Check me out</label>
         </div> --}}
-        <a href="/forgotpassword" class='desc'>Forgot Password?</a>
+        {{!-- <a href="/forgotpassword" class='desc'>Forgot Password?</a> --}}
+        <a>Don't have an account?</a>
+        <a href="/register" class='desc'>Register Now</a>
         <button class="form-submit" type="submit">Sign In</button>
     </form>
 
@@ -52,7 +53,9 @@ html {
   font-family: 'Asap', sans-serif;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  overflow-x: hidden; }
+  overflow-x: hidden; 
+  overflow-y: hidden;
+}
 
 /* Animation */
 @keyframes fadeIn {
@@ -183,26 +186,28 @@ html {
 }
 
 /*  */
-
 .main {
-  background: #f1f1f1;
+  background-color: #e6e5e5;
   min-height: 100vh;
   display: flex;
   justify-content: center;
 }
 .form {
   width: 380px;
-  min-height: 100px;
+  height: 620px;
   padding: 32px 24px;
   text-align: center;
   background: #fff;
   border-radius: 2px;
   margin: 24px;
-  align-self: center;
   box-shadow: 0 2px 5px 0 rgba(51,62,73,.1);
+  align-self: center;
 }
-.form .heading {
+.form .fheading {
   font-size: 2rem;
+  text-align: center;
+  color: #c60b0b;
+  font-weight: bold;
 }
 .form .desc {
   text-align: center;
