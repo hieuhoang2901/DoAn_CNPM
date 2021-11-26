@@ -1,26 +1,29 @@
+
+{{!-- <link rel="stylesheet" href="/css/base.css"> --}}
+{{!-- <link rel="stylesheet" href="/css/app3.css"> --}}
+
 <div class="content__header" style="margin-top: 100px">
     <h3 class="content__header-heading">
-        <span class="under-line-effect under-line-effect--red">PAYMENT</span>
+       
     </h3>
 </div>
+
 
 <div class="grid" style="padding-left: 120px; margin-bottom: 100px">
     <div class="row">
         <div class="col l-6">
             <div class="contact__info">
                 <div class="contact__row" style="padding-bottom: 10px;">
-                    <span class="contact__label">Contact</span>
-                    <span class="contact__desc">{{user.email}}</span>
-                    <span class="contact__change">Change</span>
+                    <span class="contact__label">Số điện thoại</span>
+                    <span class="contact__desc">0{{user.phonenumber}}</span>
                 </div>
                 <div class="contact__row bd-t" style="padding-top: 10px;">
                     <span class="contact__label">Ship to</span>
                     <span class="contact__desc">{{user.address}}</span>
-                    <span class="contact__change">Change</span>
                 </div>
             </div>
 
-            <h3 class="payment__title">Payment</h3>
+            <h3 class="payment__title">Chọn phương thức thanh toán</h3>
             <div class="payment__info">
                 <ul class="payment__list">
                     <li class="payment__method">
@@ -33,7 +36,7 @@
                                         src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/checkout/icon-payment-method-cod.svg"
                                         alt="cod" />
                                     <div class="method-content">
-                                        <div class="method-content__name"><span>Cash payment on delivery</span>
+                                        <div class="method-content__name"><span>Thanh toán tiền mặt khi giao hàng</span>
                                         </div>
                                     </div>
                                 </div>
@@ -112,7 +115,7 @@
 
             <button class="product__item-btn btn-red" style="color: white;" id="checkout-btn" name="checkout-btn"
                 data-toggle="modal" data-target="#momo-form">Checkout</button>
-            <a href="/" class="product__item-btn">Return to shop</a>
+            <a href="/" class="product__item-btn" style="background-color: rgb(209, 209, 209);">Quay lại</a>
         </div>
         <div class="col l-6">
 
@@ -127,26 +130,26 @@
                         <img src="{{this.image}}" alt="" class="slidebar__wrap-img">
                         <span class="payment-product__quantity">{{this.qty}}</span>
                         <div class="slidebar__wrap-info" style="flex: 1;">
-                            <a href="" class="slidebar__wrap-info-product">{{this.name}}</a>
+                            <a class="slidebar__wrap-info-product">{{this.name}}</a>
 
                         </div>
-                        <div class="slidebar__wrap-price">${{this.price}}</div>
+                        <div class="slidebar__wrap-price">{{this.price}}.000đ</div>
                     </li>
 
                     {{/each}}
 
                 </ul>
                 <div class="slidebar__wrap-total">
-                    <span class="slidebar__wrap-sub-total">SUBTOTAL</span>
-                    <span class="slidebar__wrap-sub-total">${{subtotalPrice}}</span>
+                    <span class="slidebar__wrap-sub-total">Tổng cộng</span>
+                    <span class="slidebar__wrap-sub-total">{{subtotalPrice}}.000đ</span>
                 </div>
                 <div class="slidebar__wrap-total">
-                    <span class="slidebar__wrap-sub-total">SHIPPING</span>
-                    <span class="slidebar__wrap-sub-total">$5</span>
+                    <span class="slidebar__wrap-sub-total">Phí vận chuyển</span>
+                    <span class="slidebar__wrap-sub-total">15.000đ</span>
                 </div>
                 <div class="slidebar__wrap-total">
-                    <span class="slidebar__wrap-sub-total">TOTAL</span>
-                    <span class="slidebar__wrap-sub-total">${{totalPrice}}</span>
+                    <span class="slidebar__wrap-sub-total">Số tiền phải thanh toán</span>
+                    <span class="slidebar__wrap-sub-total">{{totalPrice}}.000đ</span>
                 </div>
             </div>
         </div>
@@ -288,7 +291,7 @@
                     </div>
                     <div class="contact__row" style="padding-top: 10px; padding-bottom: 10px">
                         <span class="contact__label" style="margin-right: 5px;">Số tiền</span>
-                        <span class="contact__desc" style="text-align: right;">${{totalPrice}}</span>
+                        <span class="contact__desc" style="text-align: right;">{{totalPrice}}.000đ</span>
                     </div>
 
                     <div class="contact__row bd-t" style="padding-top: 10px; padding-bottom: 10px">
@@ -298,7 +301,7 @@
 
                     <div class="contact__row bd-t" style="padding-top: 10px;">
                         <span class="contact__label" style="margin-right: 5px;">Tổng tiền</span>
-                        <span class="contact__desc" style="text-align: right;">${{totalPrice}}</span>
+                        <span class="contact__desc" style="text-align: right;">{{totalPrice}}.000đ</span>
                     </div>
                 </div>
             </div>
@@ -336,7 +339,7 @@
                     </div>
                     <div class="contact__row" style="padding-top: 10px; padding-bottom: 10px">
                         <span class="contact__label" style="margin-right: 5px;">Số tiền</span>
-                        <span class="contact__desc" style="text-align: right;">${{totalPrice}}</span>
+                        <span class="contact__desc" style="text-align: right;">${{totalPrice}}.000đ</span>
                     </div>
 
                     <div class="contact__row bd-t" style="padding-top: 10px; padding-bottom: 10px">
@@ -346,7 +349,7 @@
 
                     <div class="contact__row bd-t" style="padding-top: 10px;">
                         <span class="contact__label" style="margin-right: 5px;">Tổng tiền</span>
-                        <span class="contact__desc" style="text-align: right;">${{totalPrice}}</span>
+                        <span class="contact__desc" style="text-align: right;">${{totalPrice}}.000đ</span>
                     </div>
                 </div>
             </div>

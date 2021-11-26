@@ -46,12 +46,12 @@ class UserController {
             }
         })
             .then (() => {
-                var cart = req.session.cart;
+                var cart = req.session.cart;    
                 let newOrder = new Order ({
                     userID: req.user._id,
                     userName: req.user.name,
                     userAddress: req.user.address,
-                    totalPrice: cart.totalPrice+5,
+                    totalPrice: cart.totalPrice+15,
                     orders: cart.items,
                     totalQty: cart.totalQty,
                     paymentMethod: req.body.method,
@@ -75,7 +75,7 @@ class UserController {
     //[POST] /user/delete-order/:id
     deleteOrder(req,res,next){
         // res.json('Deleted ' +req.body.id);
-        Order.delete({_id: req.params.id})
+        Order.deleteOne({_id: req.params.id})
             .then(()=> res.redirect('back'))
             .catch(next);
     }
@@ -138,10 +138,10 @@ class UserController {
         {
           cart.items.push({
             name: arr[i][0],
-            price: arr[i][1],
+            price: arr[i][1] /1000,
             image: arr[i][2],
             qty: parseInt(arr[i][3]),
-            prices: arr[i][1]*parseInt(arr[i][3]),
+            prices: arr[i][1]*parseInt(arr[i][3])/1000,
           });
           cart.totalPrice += cart.items[i].prices;
           cart.totalQty += cart.items[i].qty;
@@ -152,7 +152,7 @@ class UserController {
         res.render('user/onlPayment',{
             cartdishes: cart.items,
             subtotalPrice: cart.totalPrice,
-            totalPrice: cart.totalPrice + 5,
+            totalPrice: cart.totalPrice + 15,
             user: req.user,
 
         });
