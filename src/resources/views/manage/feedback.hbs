@@ -28,7 +28,7 @@
                     <div class="admin_detail_title">
                         Phản hồi khách hàng
                     </div>
-                    <div class="admin_detail_content">
+                    <div class="admin_detail_content" style="margin-left:20px; margin-top:20px">
                         {{#each feedback}}
                         <div class="admin_detail_content_user" style="margin-top: 20px;">
                             <div class="feedback-flex">
@@ -39,8 +39,8 @@
 
                             <h6>- Name: <span style="font-weight: 400;">{{this.userName}}</span></h6>
                             <h6>- Dish:
-                                {{#each this.dishName}}
-                                <span style="font-weight: 400;">{{this}}-</span>
+                                {{#each this.orders}}
+                                <span style="font-weight: 400;">{{this.name}}-</span>
                                 {{/each}}
                             </h6>
                         </div>

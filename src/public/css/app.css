@@ -413,4 +413,10 @@ body{
   .admin_detail_note{
     margin:20px;
   }
-  
+  .feedback-flex{
+    display: flex;
+    justify-content: space-between;
+  }
+  .delete-feedback{
+    margin-right: 30px;
+  }
