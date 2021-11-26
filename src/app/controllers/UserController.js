@@ -106,9 +106,13 @@ class UserController {
                 //         .catch(next);
                 // }
                 
-                // res.redirect('/user/ordered');
+                res.render('user/feedback');
             })
             .catch(next);
+    }
+
+    feedback(req,res,next) {
+        res.render('user/feedback');
     }
 
     // [POST] /user/payment 

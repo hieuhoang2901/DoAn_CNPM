@@ -15,6 +15,7 @@ route.post('/stored-order', requireLogin, UserController.storedOrder);
 route.post('/delete-order/:id', requireLogin, UserController.deleteOrder);
 route.post('/cancel-order/:id', requireLogin, UserController.cancelOrder);
 route.get('/complete/:id',requireLogin,UserController.complete);
+route.get('/feedback', UserController.feedback);
 route.get('/ordered', requireLogin, UserController.ordered);
 route.get('/viewbooktable', requireLogin, UserController.viewTableReservation);
 route.get('/viewbooktable2',requireLogin, UserController.viewTableReservation2);
