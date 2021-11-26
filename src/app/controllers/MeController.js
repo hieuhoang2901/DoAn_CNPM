@@ -1,4 +1,4 @@
-const { multipleMongooseToObject, mongooseToObject } = require('../../util/mongoose');
+const { mutiMongoosetoObject, mongooseToObject } = require('../../util/mongoose');
 const Course = require('../models/Course');
 const Dish = require('../models/Dish')
 
@@ -15,7 +15,7 @@ class MeController {
       .then(([dishes,deletedCount]) =>  
           res.render('me/stored-food', {
             deletedCount,
-            dishes: multipleMongooseToObject(dishes),
+            dishes: mutiMongoosetoObject(dishes),
           })
       )
       .catch(next);
@@ -26,7 +26,7 @@ class MeController {
     Dish.findDeleted({}) 
       .then((dishes) => 
         res.render('me/trashed-food', {
-          dishes: multipleMongooseToObject(dishes),
+          dishes: mutiMongoosetoObject(dishes),
         }), 
       )
       .catch(next);

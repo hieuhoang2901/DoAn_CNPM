@@ -1,18 +1,18 @@
 const Course = require('../models/Course');
 const Dish = require('../models/Dish')
-const { mongooseToObject, modifyRequestImage } = require('../../util/mongoose')
+const { MongoosetoObject, modifyRequestImage } = require('../../util/mongoose')
 
 class DishController {
 
   show(req, res, next) {
     Dish.findOne({ slug: req.params.slug })
       .then((course) => 
-        res.render('courses/show', {course: mongooseToObject(course)})
+        res.render('courses/show', {course: MongoosetoObject(course)})
       )
       .catch(next);
   }
   
-  // [POST] /courses/create 
+  // [GET] /courses/create 
   create(req, res, next) {
     res.render('courses/create');
   }
@@ -30,15 +30,16 @@ class DishController {
   edit(req, res, next) {
     Dish.findById(req.params.id)
       .then(dish => res.render('courses/edit', {
-        dish: mongooseToObject(dish),
+        dish: MongoosetoObject(dish),
+        user: req.user,
       }))
       .catch(next)
   }
 
-  // [PUT] /course/:id
+  // [PUT] /foods/:id
   update(req,res,next) {
     Dish.updateOne({ _id: req.params.id}, req.body)
-      .then(() => res.redirect('/me/stored/courses'))
+      .then(() => res.redirect('/manager/stored/foods'))
       .catch(next)
   }
 

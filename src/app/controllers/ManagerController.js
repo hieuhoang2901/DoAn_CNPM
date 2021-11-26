@@ -1,9 +1,8 @@
 const Dish      =  require('../models/Dish');
-const Table     =  require('../models/Table');
-const User      =  require('../models/Userid');
+const User      =  require('../models/User');
 const Order = require('../models/Order');
 
-const { mutiMongoosetoObject,MongoosetoObject }  = require('../../util/subfuntion');
+const { mutiMongoosetoObject,MongoosetoObject }  = require('../../util/mongoose');
 
 class ManagerController {
     index(req, res) {
@@ -54,7 +53,7 @@ class ManagerController {
     }
     
     create(req, res, next) {
-        res.render('Manager/create',{user: req.user,});
+        res.render('courses/create',{user: req.user,});
     }
 
     edit(req, res, next) {
@@ -66,6 +65,41 @@ class ManagerController {
                 }),
             )
             .catch(next);
+    }
+    // [PUT] /course/:id
+    update(req,res,next) {
+        Dish.updateOne({ _id: req.params.id}, req.body)
+        .then(() => res.redirect('/manager/stored/foods'))
+        .catch(next)
+    }
+    
+    storedFoods(req, res, next) {
+        if (req.query.hasOwnProperty('_sort')) {
+            res.json({ message: 'successfully!!!' });
+        }
+
+        // Promise
+        Promise.all([Dish.find({}), Dish.countDocumentsDeleted()])
+            .then(([dishes,deletedCount]) =>  
+                res.render('me/stored-food', {
+                deletedCount,
+                dishes: mutiMongoosetoObject(dishes),
+                user: req.user,
+                })
+            )
+            .catch(next);
+    }
+    
+    // [GET]    /trash/courses
+    trashedFoods(req, res, next) {
+    Dish.findDeleted({}) 
+        .then((dishes) => 
+        res.render('me/trashed-food', {
+            dishes: mutiMongoosetoObject(dishes),
+            user: req.user,
+        }), 
+        )
+        .catch(next);
     }
     viewtablereservation(req, res, next) {
         if (req.query.hasOwnProperty('_sort')) {
