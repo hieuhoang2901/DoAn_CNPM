@@ -25,34 +25,15 @@ class UserController {
     // [GET] /user/ordered
     ordered(req, res, next) {
         //res.json(req.user._id)
-        var cart = new Cart(req.session.cart);
         Order.find({userID: req.user._id}).sort({createdAt : -1})
             .then((orders) => {
                 res.render('user/ordered',{
-                    cartdishes: cart.generateArray(),
-                    totalPrice: cart.totalPrice,
-                    totalQty: cart.totalQty,
                     user: req.user,
                     orders: mutiMongoosetoObject(orders)
                 })
             })
-            .catch(next)
+            .catch(next);
         
-    }
-
-    // [GET] /user/ordering
-    ordering(req, res, next) {
-        // if(!req.session.cart)   {
-        //     return res.render('user/cart', {cartdishes: null});
-        // }
-        var cart = new Cart(req.session.cart);
-        // if(cart) res.json(cart);
-        res.render('user/cart',{
-            user: req.user,
-            cartdishes: cart.generateArray(),
-            totalPrice: cart.totalPrice,
-            totalQty: cart.totalQty
-        })
     }
 
     //[POST] /user/stored-order
@@ -65,13 +46,13 @@ class UserController {
             }
         })
             .then (() => {
-                var cart = new Cart(req.session.cart);
+                var cart = req.session.cart;
                 let newOrder = new Order ({
                     userID: req.user._id,
                     userName: req.user.name,
                     userAddress: req.user.address,
                     totalPrice: cart.totalPrice+5,
-                    orders: cart.generateArray(),
+                    orders: cart.items,
                     totalQty: cart.totalQty,
                     paymentMethod: req.body.method,
                     paymentStatus: req.body.method == 'COD' ? 'Unpaid' : 'Paid' 
@@ -81,6 +62,7 @@ class UserController {
                         .then(() => {
                             // console.log('Order stored successful');
                             req.session.cart = null;
+                            // res.json('order stored successful');
                             res.redirect('/user/ordered');
                         })
                         .catch(next);
@@ -109,22 +91,6 @@ class UserController {
 
     //[GET] /user/complete/:id
     complete(req,res,next) {
-        // var cart = new Cart(req.session.cart);
-        // var cartdishes = cart.generateArray();
-        // // console.log(cartdishes);
-        // for(let i=0; i< cartdishes.length; i++)
-        // {
-        //     Dish.updateOne({_id :cartdishes[i].item._id},{
-        //         $set : {
-        //             sale: cartdishes[i].item.sale + cartdishes[i].price
-        //         }
-        //     })
-        //         .then()
-        //         .catch(next);
-        // }
-        // req.session.cart = null;
-        // res.redirect('/user/ordered');
-
         Order.findByIdAndUpdate( req.params.id,{
             $set: {
                 status: 'Completed',
@@ -132,15 +98,15 @@ class UserController {
             }
         })
             .then((order) => {
-                var arr = order.orders;
-                for(let i=0; i< arr.length;i++)
-                {
-                    Dish.updateOne({ _id : arr[i].item._id},{$inc : {sale: arr[i].qty}})
-                        .then()
-                        .catch(next);
-                }
+                // var arr = order.orders;
+                // for(let i=0; i< arr.length;i++)
+                // {
+                //     Dish.updateOne({ _id : arr[i].item._id},{$inc : {sale: arr[i].qty}})
+                //         .then()
+                //         .catch(next);
+                // }
                 
-                res.redirect('/user/ordered');
+                // res.redirect('/user/ordered');
             })
             .catch(next);
     }
@@ -152,6 +118,7 @@ class UserController {
         var cart = {
             items: [],
             totalPrice: 0,
+            totalQty: 0,
         };
         for(let i = 0; i < arr.length; i++)
         {
@@ -160,15 +127,19 @@ class UserController {
             price: arr[i][1],
             image: arr[i][2],
             qty: parseInt(arr[i][3]),
+            prices: arr[i][1]*parseInt(arr[i][3]),
           });
-          cart.totalPrice += cart.items[i].price * cart.items[i].qty;
+          cart.totalPrice += cart.items[i].prices;
+          cart.totalQty += cart.items[i].qty;
         }
         // res.json(cart);
          req.session.cart = cart;
         // res.json(req.session.cart);
         res.render('user/onlPayment',{
+            noheader: true,
             cartdishes: cart.items,
-            totalPrice: cart.totalPrice,
+            subtotalPrice: cart.totalPrice,
+            totalPrice: cart.totalPrice + 5,
             user: req.user,
 
         });
