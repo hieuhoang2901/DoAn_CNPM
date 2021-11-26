@@ -110,9 +110,6 @@ h2 {
     margin-right: 2.5rem;
     font-weight: 550;
 }
-.heading-item-list:first-child {
-    margin-left: 5rem;
-}
 .heading-item-list:last-child {
     margin-right: 27rem;
 }
