@@ -98,10 +98,11 @@ class UserController {
                 //         .then()
                 //         .catch(next);
                 // }
-                
+                // res.json(order.feedback.text);
                 res.render('user/feedback',{
                     user: req.user,
                     orderID: order._id,
+                    feedback: order.feedback
                 });
             })
             .catch(next);
