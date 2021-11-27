@@ -235,6 +235,12 @@ document.addEventListener('DOMContentLoaded', function () {
     var removeAllBtn2 = document.getElementById('clear-cart-btn2');
 
     paymentBtn.onclick = function () {
+        if(!giohang.length)
+        {
+            alert("GIỎ HÀNG TRỐNG, VUI LÒNG CHỌN SẢN PHẨM !")
+            close_cart();
+            return;
+        }
         var arr = JSON.stringify(giohang);
         $(input_cart).attr('value',arr);
         console.log(arr);
