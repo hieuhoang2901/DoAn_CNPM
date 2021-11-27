@@ -7,21 +7,20 @@
     <h1 class="under-line-effect under-line-effect--red" style=" text-align: center; margin-left: 10px;color: rgb(99, 24, 38); font-weight: 800">Lịch sử mua hàng</h1>
     {{/if}}
     {{#each orders }}
-    <div class="card-header" id="heading{{@index}}" style="background-color:rgb(255, 176, 176); border-radius: .6em;">
+    <div class="card-header ordered-card-header" id="heading{{@index}}" style="">
       <h5 class="mb-0">
         <button class="product__item-btn btn-link" style="color: rgb(48, 34, 34);border: none;border-radius: .3em; " data-toggle="collapse" data-target="#collapse{{@index}}" aria-expanded="true" aria-controls="collapse{{@index}}">
           Hóa đơn {{sum @index 1}}
           {{#if (isMatch ../user.permission "Manager")}}
             Của: {{this.userName}}
-           <i class="fal fa-bars"></i>
           {{/if}}
-          
+          <br>
           Đặt vào: {{this.createdAt}}
         </button>
       </h5>
     </div>
     {{#if (isMatch ../user.permission "Manager")}}
-          ID người dùng: {{this.userID}}
+         <p style="font-weight: 800; color:rgb(99, 24, 38)"> ID người dùng: {{this.userID}}</p>
           {{/if}}
     <div id="collapse{{@index}}" class="collapse show" aria-labelledby="heading{{@index}}" data-parent="#accordion">
       <div class="card-body" style="font-size: 1.4rem;">

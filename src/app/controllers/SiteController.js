@@ -1,20 +1,14 @@
 const Dish = require('../models/Dish');
 const User = require('../models/User');
-const Cart = require('../models/Cart');
 const jwt  = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
 const { mutiMongoosetoObject } = require('../../util/mongoose');
 
 class SiteController {
     home(req, res, next) {
-
-        //var cart = new Cart(req.session.cart);
         Dish.find({ recommend: true })
             .then((dishes) => {
                 res.render('Site/home', {
-                    // cartdishes: req.session.cart ? cart.generateArray() : null ,
-                    // totalPrice: req.session.cart ? cart.totalPrice : 0,
-                    // totalQty: req.session.cart ? cart.totalQty : 0,
                     dishes: mutiMongoosetoObject(dishes),
                     user: req.user,
                 });  

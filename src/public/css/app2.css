@@ -860,3 +860,10 @@ box-sizing: border-box;
 .btn-green {
     background-color: green;
 }
+
+.ordered-card-header {
+    background-color:rgb(255, 176, 176);
+    border-radius: .6em;
+    align-items: center;
+    text-align: center;
+}

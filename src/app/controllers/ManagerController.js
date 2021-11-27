@@ -56,8 +56,6 @@ class ManagerController {
     }
 
     create(req, res, next) {
-
-        res.render('courses/create', { user: req.user, });
         res.render('courses/create', { user: req.user, });
     }
 

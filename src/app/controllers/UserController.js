@@ -1,6 +1,5 @@
 const Dish = require('../models/Dish');
 const User = require('../models/User');
-const Cart = require('../models/Cart');
 const Order = require('../models/Order');
 const bcryt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -12,14 +11,8 @@ const { response } = require('express');
 
 class UserController {
     index(req, res, next) {
-
-        var cart = new Cart(req.session.cart);
-        // if(cart) res.json(cart);
         res.render('user/userinfo',{
             user: req.user,
-            cartdishes: cart.generateArray(),
-            totalPrice: cart.totalPrice,
-            totalQty: cart.totalQty
         })
     }
     // [GET] /user/ordered
