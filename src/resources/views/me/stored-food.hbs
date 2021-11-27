@@ -1,6 +1,6 @@
-<form class="mt-4" name="container-form" method="POST" action="/foods/handle-form-actions">
+<form class="mt-4 form-wrp" name="container-form" method="POST" action="/foods/handle-form-actions">
   <div>
-    <h3>Danh sách món ăn của nhà hàng</h3>
+    <h1 style="text-align: center;">Danh sách món ăn của nhà hàng</h1>
     <a href="/manager/trashed/foods">Thùng rác ({{deletedCount}})</a>
     <div class="mt-4 d-flex align-items-center">
       <div class="form-check">
@@ -92,7 +92,11 @@
     </div>
   </div>
 </div>
-
+<style>
+    .form-wrp {
+        margin: 50px 100px;
+    }
+</style>
 {{!-- Delete hidden form --}}
 <form name="delete-course-form" method="POST"></form>
 

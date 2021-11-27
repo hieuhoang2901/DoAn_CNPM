@@ -1,4 +1,4 @@
-<div class="" style="margin-top: 100px" id="content">
+<div class="" style="margin: 50px 120px;" id="content">
   <div id="accordion">
   <div class="card">
     {{#if (isMatch user.permission "Manager")}}
@@ -12,7 +12,7 @@
         <button class="product__item-btn btn-link" style="color: rgb(48, 34, 34);border: none;border-radius: .3em; " data-toggle="collapse" data-target="#collapse{{@index}}" aria-expanded="true" aria-controls="collapse{{@index}}">
           Hóa đơn {{sum @index 1}}
           {{#if (isMatch ../user.permission "Manager")}}
-            Của: {{this.userName}}
+            của: {{this.userName}}
           {{/if}}
           <br>
           Đặt vào: {{this.createdAt}}

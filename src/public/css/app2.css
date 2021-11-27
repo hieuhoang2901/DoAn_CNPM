@@ -317,7 +317,6 @@ box-sizing: border-box;
 }
 
 .btn-danger {
-    margin-top: -10px;
     color: white;
     background-color: #EB5757;
     border: none;
@@ -601,7 +600,7 @@ box-sizing: border-box;
 }
 
 .product__item-btn:hover {
-    background-color: rgb(146, 74, 74);
+    background-color: rgb(211, 99, 99);
     filter: brightness(1.2);
     color: black;
 }
