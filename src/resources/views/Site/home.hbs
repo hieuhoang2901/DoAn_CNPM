@@ -169,3 +169,10 @@
         </section>
         <!-- End cart test --> --}}
 </section>
+
+<script>
+    var realPriceArr = document.getElementsByClassName('category-item-price');
+    for (var i = 0; i < realPriceArr.length; i++) {
+        realPriceArr[i].innerHTML = realPriceArr[i].innerHTML.replace('đ', '').replace('.', '').toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".") + 'đ'
+    }
+</script>
