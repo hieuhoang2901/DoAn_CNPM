@@ -201,7 +201,8 @@ function updateCartTotal() {
     }
     localStorage.setItem('giohang', JSON.stringify(giohang));
     document.getElementsByClassName('cart-total-price')[0].innerText = total.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".") + 'đ'
-    document.getElementsByClassName('gio-hang cart-icon')[0].innerText = 'Giỏ hàng(' + total_quantity + ')'
+    // document.getElementsByClassName('gio-hang cart-icon')[0].innerText = 'Giỏ hàng(' + total_quantity + ')'
+    document.getElementsByClassName('gio-hang cart-icon')[0].innerHTML = `<i class="fa fa-shopping-cart" style="font-size:32px;"></i> <b>(${total_quantity})</b>`
 }
 var firstTime = 1;
 
