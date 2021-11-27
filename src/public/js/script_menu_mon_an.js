@@ -204,7 +204,6 @@ function updateCartTotal() {
     // document.getElementsByClassName('gio-hang cart-icon')[0].innerText = 'Giỏ hàng(' + total_quantity + ')'
     document.getElementsByClassName('gio-hang cart-icon')[0].innerHTML = `<i class="fa fa-shopping-cart" style="font-size:32px;"></i> <b>(${total_quantity})</b>`
 }
-var firstTime = 1;
 
 function show_cart()
 {
