@@ -738,6 +738,7 @@ box-sizing: border-box;
     color: #555;
     margin: 4px 0 0;
     letter-spacing: 1px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .slidebar__wrap-info-food {
@@ -790,13 +791,6 @@ box-sizing: border-box;
     object-fit: cover;
 }
 
-.slidebar__wrap-info-product {
-    font-size: 2rem;
-    line-height: 2rem;
-    color: #555;
-    margin: 4px 0 0;
-    letter-spacing: 1px;
-}
 
 .slidebar__wrap-info-food {
     height: 40px;
@@ -866,3 +860,21 @@ box-sizing: border-box;
     align-items: center;
     text-align: center;
 }
+
+.under-line-effect {
+    position: relative;
+    display: inline-block;
+    z-index: 0 !important;
+    font-family: 'Times New Roman', Times, serif; }
+  
+  .under-line-effect::after {
+    content: "";
+    position: absolute;
+    bottom: -10%;
+    right: 0;
+    height: 5px;
+    width: 100%;
+    z-index: -1; }
+
+    .under-line-effect.under-line-effect--red::after {
+        background-color: #f76570; }
