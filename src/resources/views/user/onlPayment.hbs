@@ -18,7 +18,7 @@
                     <span class="contact__desc">0{{user.phonenumber}}</span>
                 </div>
                 <div class="contact__row bd-t" style="padding-top: 10px;">
-                    <span class="contact__label">Ship to</span>
+                    <span class="contact__label">Địa chỉ</span>
                     <span class="contact__desc">{{user.address}}</span>
                 </div>
             </div>
@@ -129,7 +129,7 @@
                     <li class="slidebar__wrap-item">
                         <img src="{{this.image}}" alt="" class="slidebar__wrap-img">
                         <span class="payment-product__quantity">{{this.qty}}</span>
-                        <div class="slidebar__wrap-info" style="flex: 1;">
+                        <div class="slidebar__wrap-info" style="flex: 1; font-weight: 800">
                             <a class="slidebar__wrap-info-product">{{this.name}}</a>
 
                         </div>
@@ -148,8 +148,8 @@
                     <span class="slidebar__wrap-sub-total">15.000đ</span>
                 </div>
                 <div class="slidebar__wrap-total">
-                    <span class="slidebar__wrap-sub-total">Số tiền phải thanh toán</span>
-                    <span class="slidebar__wrap-sub-total">{{totalPrice}}.000đ</span>
+                    <span class="slidebar__wrap-sub-total" style="color: rgb(202, 67, 92)">Số tiền phải thanh toán</span>
+                    <span class="slidebar__wrap-sub-total" style="color: rgb(202, 67, 92)">{{totalPrice}}.000đ</span>
                 </div>
             </div>
         </div>

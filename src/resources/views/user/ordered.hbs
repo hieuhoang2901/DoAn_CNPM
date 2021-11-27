@@ -2,14 +2,14 @@
   <div id="accordion">
   <div class="card">
     {{#if (isMatch user.permission "Manager")}}
-    <h1 class="under-line-effect under-line-effect--red" style=" text-align: center; margin-left: 10px">Các đơn mua hàng</h1>
+    <h1 class="under-line-effect under-line-effect--red" style=" text-align: center; margin-left: 10px;color: rgb(99, 24, 38); font-weight: 800">Các đơn mua hàng</h1>
     {{else}}
-    <h1 class="under-line-effect under-line-effect--red" style=" text-align: center; margin-left: 10px">Lịch sử mua hàng</h1>
+    <h1 class="under-line-effect under-line-effect--red" style=" text-align: center; margin-left: 10px;color: rgb(99, 24, 38); font-weight: 800">Lịch sử mua hàng</h1>
     {{/if}}
     {{#each orders }}
-    <div class="card-header" id="heading{{@index}}">
+    <div class="card-header" id="heading{{@index}}" style="background-color:rgb(255, 176, 176); border-radius: .6em;">
       <h5 class="mb-0">
-        <button class="product__item-btn btn-link btn-blue" style="color: rgb(48, 34, 34);" data-toggle="collapse" data-target="#collapse{{@index}}" aria-expanded="true" aria-controls="collapse{{@index}}">
+        <button class="product__item-btn btn-link" style="color: rgb(48, 34, 34);border: none;border-radius: .3em; " data-toggle="collapse" data-target="#collapse{{@index}}" aria-expanded="true" aria-controls="collapse{{@index}}">
           Hóa đơn {{sum @index 1}}
           {{#if (isMatch ../user.permission "Manager")}}
             Của: {{this.userName}}
@@ -17,7 +17,6 @@
           {{/if}}
           
           Đặt vào: {{this.createdAt}}
-          <i class="fal fa-bars"></i>
         </button>
       </h5>
     </div>
@@ -43,16 +42,16 @@
             <td>{{this.name}}</td>
             <td>{{this.price}}.000đ</td>
             <td>{{this.qty}}</td>
-            <td>{{this.prices}}.000đ</td>
+            <td style="color: rgb(199, 74, 95); font-weight: 800">{{this.prices}}.000đ</td>
           </tr>
           {{/each}}
         </tbody>
         </table>
-        <p>Total : {{this.totalPrice}}.000đ</p>
-        <p>Payment method: {{this.paymentMethod}} </p>
-        <p>Payment status: {{this.paymentStatus}} </p>
-        <p>Deliver to: {{this.userAddress}} </p>
-        <p><b>Order status: {{this.status}} </b></p>
+        <p style="color: rgb(99, 24, 38); font-weight: 800">Total : {{this.totalPrice}}.000đ</p>
+        <p style="color: rgb(99, 24, 38); ">Payment method: {{this.paymentMethod}} </p>
+        <p style="color: rgb(99, 24, 38); ">Payment status: {{this.paymentStatus}} </p>
+        <p style="color: rgb(99, 24, 38); ">Deliver to: {{this.userAddress}} </p>
+        <p style="color: rgb(201, 74, 74)  ; font-weight: 1600"><b>Order status: {{this.status}} </b></p>
         
          {{!-- View khách hàng --}}
         {{#if (isMatch ../user.permission "Customer")}}
