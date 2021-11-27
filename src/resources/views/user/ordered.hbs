@@ -54,22 +54,25 @@
         <p>Deliver to: {{this.userAddress}} </p>
         <p><b>Order status: {{this.status}} </b></p>
         
+         {{!-- View khách hàng --}}
+        {{#if (isMatch ../user.permission "Customer")}}
         {{!-- Đơn hàng hoàn thành --}}
           {{#if (isMatch this.status "Completed")}}  
-           <a href="/user/complete/{{this._id}}"><button class="product__item-btn btn-green">Give feedback</button></a>
-        {{!-- Đơn hàng đã hủy --}}
-           {{else if (isMatch this.status "Canceled")}}
-        
+            <a href="/user/complete/{{this._id}}"><button class="product__item-btn btn-green" style="color: white;">Give feedback</button></a>
+           {{else if (isMatch this.status "Incomplete")}}
         {{!-- Đơn hàng đang được giao --}}
-          {{else if (isMatch ../user.permission "Customer") }}
-          <a href="/user/complete/{{this._id}}"><button class="product__item-btn btn-green" style=":hover {background-color: rgb(151, 224, 151);}">Order Received</button></a>
-          {{else}}
+          <a href="/user/complete/{{this._id}}" type="submit" class="product__item-btn btn-green" style="color: white;">Order Received</a>
+          <button type="button" class="product__item-btn btn-red" style="color: white;" data-toggle="modal" data-target="#cancel-order" data-id="{{this._id}}">CANCEL</button> 
+          {{/if}} 
+        {{/if}}
 
         {{!-- View quản lý --}}
-          <span>ORDER PENDING</span>
-          {{/if}} 
-          {{#if (isMatch this.status "Incomplete")}} 
-          <button type="button" class="product__item-btn btn-red danger" style="background-color: rgb(223, 84, 84); color: white;" data-toggle="modal" data-target="#cancel-order" data-id="{{this._id}}">CANCEL</button> {{/if}}
+        {{#if (isMatch ../user.permission "Manager")}}
+          {{#if (isMatch this.status "Incomplete")}}
+            <p>ORDER PENDING</p>
+            <button type="button" class="product__item-btn btn-red" style="color: white;" data-toggle="modal" data-target="#cancel-order" data-id="{{this._id}}">CANCEL</button> 
+          {{/if}}
+        {{/if}}
           
           <button type="button" class="product__item-btn btn-red " style="color: white;" data-toggle="modal" data-target="#delete-order" data-id="{{this._id}}">DELETE</button>
       </div> 
