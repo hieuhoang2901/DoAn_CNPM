@@ -20,7 +20,7 @@ class DishController {
   // [POST] /courses/store
   store(req, res, next) {
     const formData = req.body;
-    // modifyRequestImage(req);
+    modifyRequestImage(req);
     const dish = new Dish(formData);
     dish.save()
       .then(() => res.redirect('/'))

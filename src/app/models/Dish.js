@@ -6,12 +6,12 @@ const Schema = mongoose.Schema;
 
 
 const Dish = new Schema({
-  name: {type: String, required: true},
-  description: {type: String, maxLength: 600},
-  // image: {type: Buffer, required: true},
+  name: {type: String, required: true, maxLength: 250},
+  description: {type: String, maxLength: 250},
+  image: {type: Buffer, required: true},
   price: {type: Number},
   type: {type: String, required: true},
-  // imageType: { type: String, required: true },
+  imageType: { type: String, required: true },
   slug: { type: String, slug: 'name', unique: true},
 },{
   timestamps: true,

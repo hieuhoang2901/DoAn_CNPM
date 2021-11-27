@@ -54,7 +54,7 @@
         {{#if_eq this.type 'Pizza'}}
             <div class="category-item">
                 <input type="hidden" class="category-item-id" value="{{this._id}}" name="id">
-                <img class="category-item-image" src="/images/{{this.image}}" alt="">
+                <img class="category-item-image" src="{{imageload this.image this.imageType}}" alt="">
                 <h1 class="category-item-title">{{this.name}}</h1>
                 <p class="category-item-detail">{{this.description}}</p>
                 <p>Giá chỉ từ:</p>
@@ -70,7 +70,7 @@
         {{#if_eq this.type  'Khai vị'}}
             <div class="category-item">
                 <input type="hidden" class="category-item-id" value="{{this._id}}" name="id">
-                <img class="category-item-image" src="/images/{{this.image}}" alt="">
+                <img class="category-item-image" src="{{imageload this.image this.imageType}}" alt="">
                 <h1 class="category-item-title">{{this.name}}</h1>
                 <p class="category-item-detail">{{this.description}}</p>
                 <p>Giá chỉ từ:</p>
@@ -86,7 +86,7 @@
         {{#if_eq this.type  'Mỳ ý'}}
             <div class="category-item">
                 <input type="hidden" class="category-item-id" value="{{this._id}}" name="id">
-                <img class="category-item-image" src="/images/{{this.image}}" alt="">
+                <img class="category-item-image" src="{{imageload this.image this.imageType}}" alt="">
                 <h1 class="category-item-title">{{this.name}}</h1>
                 <p class="category-item-detail">{{this.description}}</p>
                 <p>Giá chỉ từ:</p>
@@ -102,7 +102,7 @@
         {{#if_eq this.type  'Salad'}}
             <div class="category-item">
                 <input type="hidden" class="category-item-id" value="{{this._id}}" name="id">
-                <img class="category-item-image" src="/images/{{this.image}}" alt="">
+                <img class="category-item-image" src="{{imageload this.image this.imageType}}" alt="">
                 <h1 class="category-item-title">{{this.name}}</h1>
                 <p class="category-item-detail">{{this.description}}</p>
                 <p>Giá chỉ từ:</p>
@@ -118,7 +118,7 @@
         {{#if_eq this.type  'Tráng miệng'}}
             <div class="category-item">
                 <input type="hidden" class="category-item-id" value="{{this._id}}" name="id">
-                <img class="category-item-image" src="/images/{{this.image}}" alt="">
+                <img class="category-item-image" src="{{imageload this.image this.imageType}}" alt="">
                 <h1 class="category-item-title">{{this.name}}</h1>
                 <p class="category-item-detail">{{this.description}}</p>
                 <p>Giá chỉ từ:</p>
@@ -134,7 +134,7 @@
         {{#if_eq this.type  'Thức uống'}}
             <div class="category-item">
                 <input type="hidden" class="category-item-id" value="{{this._id}}" name="id">
-                <img class="category-item-image" src="/images/{{this.image}}" alt="">
+                <img class="category-item-image" src="{{imageload this.image this.imageType}}" alt="">
                 <h1 class="category-item-title">{{this.name}}</h1>
                 <p class="category-item-detail">{{this.description}}</p>
                 <p>Giá chỉ từ:</p>
