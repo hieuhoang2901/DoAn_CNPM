@@ -1,5 +1,10 @@
 {{!-- Search result --}}
+<div class="body-wrapper">
+    {{#if dishes}}
     <h1 class="header-title">Kết quả tìm kiếm: </h1>
+    {{else}}
+    <h1 class="header-title">Không tìm thấy bất kỳ kết quả nào!</h1>
+    {{/if}}
     <h1></h1>
     <section class="category-wrapper">
     <div class="category">
@@ -14,10 +19,17 @@
         </div>
     {{/each}}
     </div>
-    
+</div>
     <style>
+        body {
+            background-image: url('https://scontent.fdad3-5.fna.fbcdn.net/v/t1.15752-9/263308147_226786419596723_8635624285869140156_n.png?_nc_cat=106&ccb=1-5&_nc_sid=ae9488&_nc_ohc=mM-rumu8TkUAX9HIo32&_nc_ht=scontent.fdad3-5.fna&oh=58eb3fa6072203187fc7ffdf5c53bc91&oe=61CF522A');
+            background-repeat: repeat;
+        }
         .header-title {
-            margin-left: 40px;
+            margin-left: 60px;
+        }
+        .body-wrapper {
+            min-height: 260px;
         }
     </style>
     
