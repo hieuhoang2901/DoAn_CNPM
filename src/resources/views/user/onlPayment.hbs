@@ -15,11 +15,11 @@
             <div class="contact__info">
                 <div class="contact__row" style="padding-bottom: 10px;">
                     <span class="contact__label">Số điện thoại</span>
-                    <span class="contact__desc">0{{user.phonenumber}}</span>
+                    <span class="contact__desc">&nbsp;&nbsp;0{{user.phonenumber}}</span>
                 </div>
                 <div class="contact__row bd-t" style="padding-top: 10px;">
                     <span class="contact__label">Địa chỉ</span>
-                    <span class="contact__desc">{{user.address}}</span>
+                    <span class="contact__desc">&nbsp;&nbsp;{{user.address}}</span>
                 </div>
             </div>
 
@@ -133,7 +133,7 @@
                             <a class="slidebar__wrap-info-product">{{this.name}}</a>
 
                         </div>
-                        <div class="slidebar__wrap-price">{{this.price}}.000đ</div>
+                        <div class="slidebar__wrap-price">{{this.prices}}.000đ</div>
                     </li>
 
                     {{/each}}
@@ -222,7 +222,7 @@
                             </div>
                             <input type="hidden" name="method" value="Credit Card">
                             <input type="button" value="Edit Payment Info" class="product__item-btn btn-red"
-                                style="cursor: pointer; width: 150px; color: white"></input>
+                                style="cursor: pointer; width: 200px; color: white"></input>
                             <input type="submit" id="clear-cart-btn2" class="product__item-btn btn-red" style="color: white;" name=""
                                 value="Submit" ></input>
                         </form>
