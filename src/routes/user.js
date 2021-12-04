@@ -25,6 +25,6 @@ route.post('/login', UserController.login, authenticateUser);
 route.get('/resetpassword/:id/:token', UserController.resetPassword);
 route.put('/updatepassword/:id/:token', UserController.updatePassword);
 route.get('/logout', UserController.logout);
-route.get('/', UserController.index);
+route.get('/',requireLogin, UserController.index);
 
 module.exports = route;
