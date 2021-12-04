@@ -24,7 +24,7 @@ class SiteController {
         Dish.find({'name' : new RegExp(data, 'i')})
         .then(dishes => {
           res.render('searchResult', {
-            dishes: mutiMongoosetoObject(dishes)
+            dishes: mutiMongoosetoObject(dishes), user: req.user,
           });
         })
     .catch(next);
