@@ -58,7 +58,7 @@
     {{#if (isMatch user.permission "Customer")}}
       <li class="header__navbar-item">
         <a href="#" class="header__navbar-item-link">
-              <img src="http://simpleicon.com/wp-content/uploads/account.png" id="profileImage" width="30" height="30" class="d-inline-block align-top" alt="">
+              <img src="{{imageload user.image  user.imageType}}" style="border-radius:50%;" id="profileImage" width="30" height="30" class="d-inline-block align-top" alt="">
               {{user.name}}
         </a>
         <ul class="header__subnav-list">
@@ -116,7 +116,7 @@
 <!-- Cart test -->
   <section class="container content-section">
       <div id="cartshow" onmouseover="show_cart()" onmouseleave="close_cart()" style="display: none;">
-          <h2 class="section-header">GIỎ HÀNG</h2>
+          <h2 class="section-header">Giỏ hàng</h2>
           <div class="cart-row">
               <span class="cart-item cart-header cart-column">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sản phẩm</span>
               <span class="cart-price cart-header cart-column">Giá</span>

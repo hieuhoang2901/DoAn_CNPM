@@ -65,6 +65,23 @@ class UserController {
 
     }
 
+    // [POST] /user/updateImage
+    updateImage(req, res, next) {
+        if(req.body.image) {
+        //     // res.json(req.body);
+            modifyRequestImage(req);
+            // res.json(req.body.imageType);
+            User.updateOne({_id: req.params.id },{$set:{image: req.body.image, imageType: req.body.imageType, name: req.body.name, address: req.body.address}})
+                .then(() => res.redirect('back'))
+                .catch(next);
+        }
+        else if (req.body.name){
+            User.updateOne({ _id: req.params.id },{ $set: { name: req.body.name, address: req.body.address } })
+                .then(() => res.redirect('back'))
+                .catch(next);
+        }
+    }
+
     //[POST] /user/delete-order/:id
     deleteOrder(req,res,next){
         // res.json('Deleted ' +req.body.id);

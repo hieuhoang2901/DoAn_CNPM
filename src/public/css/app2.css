@@ -411,6 +411,9 @@ box-sizing: border-box;
     margin: 14px 30px 14px 0px;
     padding: 0 16px;
 }
+.header__navbar-item-link:hover {
+    text-decoration: none;
+}
 .header__navbar-item:hover>.header__subnav-list {
     display: block;
     background-color: white;

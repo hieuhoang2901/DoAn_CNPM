@@ -8,7 +8,8 @@ const requireLogin = require('../app/middlewares/LoginRequires');
 
 // route.post('/remove-from-cart/:id', requireLogin,UserController.removeFromCart);
 // route.post('/add-to-cart/:id', requireLogin,UserController.addToCart);
-// route.put('/updateinfo/:id', requireLogin,UserController.updateImage);
+
+route.put('/updateinfo/:id', requireLogin,UserController.updateImage);
 
 route.post('/payment', requireLogin, UserController.payment);
 route.post('/stored-order', requireLogin, UserController.storedOrder);
@@ -24,6 +25,6 @@ route.post('/login', UserController.login, authenticateUser);
 route.get('/resetpassword/:id/:token', UserController.resetPassword);
 route.put('/updatepassword/:id/:token', UserController.updatePassword);
 route.get('/logout', UserController.logout);
-route.get('/', requireLogin, UserController.index);
+route.get('/', UserController.index);
 
 module.exports = route;

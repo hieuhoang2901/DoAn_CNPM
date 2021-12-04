@@ -18,10 +18,10 @@
                             --}}
                             <div class="profileImage__wrap">
                                 {{#if user.image}}
-                                <image style="width:100%" id="profileImage"
+                                <image style="margin-left: 100px; width:50%" id="profileImage"
                                     src="{{imageload user.image  user.imageType}}" />
                                 {{else}}
-                                <image style="width:100%" id="profileImage"
+                                <image style="margin-left: 100px; width:50%" id="profileImage"
                                     src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" />
                                 {{/if}}
                             </div>
@@ -37,22 +37,33 @@
         <div class="col l-6" style="margin-bottom: 100px;">
             <div class="user__info pl-40">
                 <form method="POST" action="/user/updateinfo/{{user._id}}?_method=PUT">
-                    <label class="info__label" for="Name">Name</label><input class="info__value" type="text" name="name"
+                    <label class="info__label" for="Name">Name</label><input style="margin-bottom: 25px; width: 300px;" class="info__value" type="text" name="name"
                         readonly value='{{user.name}}'></input>
 
-                    <label class="info__label" for="Address">Address</label><input class="info__value" type="text"
+                    <label class="info__label" for="Address">Address</label><input style="margin-bottom: 25px; width: 300px;" class="info__value" type="text"
                         name="address" readonly value="{{user.address}}"></input>
 
-                    <label class="info__label" for="Email">Email</label><span class="info__value" type="email"
-                        name="email" readonly>{{user.email}}</span>
-                    <label class="info__label" for="image">Change image</label>
+                    <label class="info__label" for="Email">Email</label>
+                    <span class="info__value" type="email" name="email" readonly>{{user.email}}</span>
+                    <label style="margin-top: 25px;" class="info__label" for="image">Change image</label>
                     <input type="file" class="filepond info__image" name="image">
-                    <input type="button" value="Edit profile" class="product__item-btn btn-red"
+                    <input type="button" value="Edit profile" class="product__item-btn btn-red product__item-btn-change"
                         style="cursor: pointer; width: 150px; color: white"></input>
 
-                    <input type="submit" class="product__item-btn btn-red" style="color: white;" disabled></input>
+                    <input type="submit" class="product__item-btn btn-red submit-btn" style="color: white;" disabled></input>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var changeBtn = $('.product__item-btn-change');
+        var submitBtn = $('.submit-btn');
+        changeBtn.onclick = function() {
+            submitBtn.attr('disabled', false);
+        }
+
+    });
+</script>
