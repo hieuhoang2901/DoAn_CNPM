@@ -1,5 +1,10 @@
 {{!-- Search result --}}
+<div class="body-wrapper">
+    {{#if dishes}}
     <h1 class="header-title">Kết quả tìm kiếm: </h1>
+    {{else}}
+    <h1 class="header-title">Không tìm thấy bất kỳ kết quả nào!</h1>
+    {{/if}}
     <h1></h1>
     <section class="category-wrapper">
     <div class="category">
@@ -14,10 +19,13 @@
         </div>
     {{/each}}
     </div>
-    
+</div>
     <style>
         .header-title {
-            margin-left: 40px;
+            margin-left: 60px;
+        }
+        .body-wrapper {
+            min-height: 260px;
         }
     </style>
     
