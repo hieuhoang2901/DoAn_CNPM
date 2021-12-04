@@ -883,3 +883,7 @@ box-sizing: border-box;
 
     .under-line-effect.under-line-effect--red::after {
         background-color: #f76570; }
+
+    .pizzaKingg:hover{
+        text-decoration: none;
+    }
