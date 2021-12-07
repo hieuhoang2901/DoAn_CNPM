@@ -1,5 +1,4 @@
 const { mutiMongoosetoObject, mongooseToObject } = require('../../util/mongoose');
-const Course = require('../models/Course');
 const Dish = require('../models/Dish')
 
 class MeController {

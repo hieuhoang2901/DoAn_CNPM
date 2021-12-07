@@ -1,4 +1,3 @@
-const Course = require('../models/Course');
 const Dish = require('../models/Dish')
 const { MongoosetoObject, modifyRequestImage } = require('../../util/mongoose')
 
