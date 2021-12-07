@@ -4,7 +4,7 @@ const Order = require('./../models/Order');
 const { mutiMongoosetoObject, MongoosetoObject } = require('./../../util/mongoose');
 
 exports.getAllUser = async (req, res) => {
-    // if(req.user.permission !== 'Manager') res.redirect('/');
+    if (req.user.permission !== 'Manager') res.redirect('/');
     req.params.page = req.params.page || 0;
     if (req.params.page < 0) req.params.page = 0;
     const skip = req.params.page * 5;
@@ -26,7 +26,6 @@ exports.detailUser = async (req, res) => {
     if (req.user.permission !== 'Manager') res.redirect('/');
     const users = await User.findOne({ phonenumber: req.params.phone });
     const order = await Order.findOne({ userID: users._id });
-    console.log(order);
     res.render('manage/detail', { user: req.user, users: MongoosetoObject(users), order: MongoosetoObject(order) });
 }
 exports.feedback = async (req, res) => {
