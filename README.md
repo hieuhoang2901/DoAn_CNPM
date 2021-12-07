@@ -1,4 +1,4 @@
-# Đồ án công nghệ phần mềm
+# Đồ án công nghệ phần mềm (code chính tại branch sub)
 How to run:
 1. Cài đặt MongoDB
 2. Bật cmd và chạy lệnh npm start ở thư mục chính (các bảng trong MongoDB sẽ được tạo tự động)
